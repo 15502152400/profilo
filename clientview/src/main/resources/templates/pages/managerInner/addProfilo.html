@@ -1,0 +1,512 @@
+<style>
+
+    /* 编辑模块统一样式 */
+    .addDiv{
+        width: 45%;
+        margin-top: 30px;
+        transition: 0.3s;
+        padding-bottom: 15px;
+    }
+
+    /* 作品内容编辑模块 */
+    .worksContent{
+        width: 90%;
+    }
+
+    /* 富文本 */
+    #editor{
+        width: 90%;
+    }
+
+    /* 编辑模块标题 */
+    .divTitle{
+        font-size: 20px;
+        line-height: 48px;
+        color: #666666;
+        margin-bottom: 5px;
+    }
+
+    /* 输入框统一样式 */
+    input{
+        display: block;
+        width: 75%;
+        height: 35px;
+        border-style: none;
+        box-shadow: 1px 1px 3px #cccccc inset;
+    }
+    .profiloNameEn{
+        margin-top: 15px;
+    }
+
+    /* 下拉框统一样式 */
+    .selection{
+        text-align-last: center;
+        display: block;
+        width: 200px;
+        margin-bottom: 15px;
+        height: 30px;
+    }
+
+     /* 二级分类下拉框 */
+     .secondCate{
+         margin-bottom: 0;
+     }
+
+    /* 创建时间样式 */
+    .createTime{
+        margin-top: 15px;
+    }
+
+    /* 提交按钮 */
+    .submit{
+        font-size: 16px;
+        line-height: 48px;
+        width: 200px;
+        color: #666666;
+        border: 1px solid #999999;
+        border-radius: 200px;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+    .submit:hover{
+        background-color: rgba(23, 174, 3, 0.72);
+        color: #ffffff;
+        transition: 0.5s;
+        font-weight: bold;
+    }
+
+/*=========================== 图片上传模块  ===========================*/
+
+    /* 图片预览 */
+    .preImgDiv{
+        width: 325px;
+        height: 200px;
+        position: relative;
+        border: 1px solid #f9f9f9;
+    }
+
+    /* 图片 */
+    .preImg{
+       width: 100%;
+       height: 100%;
+       border-style: none;
+    }
+
+    /* 按钮容器 */
+    .buttomDiv{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: 0.7s;
+        background: none;
+    }
+
+    /* 背景蒙版 */
+    .mask{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #ffffff;
+        opacity: 0.6;
+    }
+
+    /* 上传和清除按钮的公共样式 */
+    .publicPreImg{
+        position: absolute;
+        left: 15%;
+        width: 70%;
+        font-size: 14px;
+        line-height: 36px;
+        color: #ffffff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    /* 上传按钮 */
+    .doUpLoad{
+        top: 25%;
+        background-color: rgba(23, 174, 3, 0.72);
+    }
+    .doUpLoad:hover{
+        background-color: rgba(23, 174, 3, 0.9);
+    }
+
+    /* 清除按钮 */
+    .clean{
+        top: 60%;
+        background-color: rgba(255, 0, 0, 0.65);
+    }
+    .clean:hover{
+        background-color: rgba(255, 0, 0, 0.75);
+    }
+
+    /* 尺寸提示 */
+    .alertWord{
+        font-size: 12px;
+        color: #999999;
+    }
+
+</style>
+
+<!-- 模块标题 -->
+<p class="modelTitle">添加作品</p>
+
+<!-- 输入作品名字 -->
+<div class="nameDiv addDiv">
+
+    <!-- 小标题 -->
+    <p class="divTitle">作品名字</p>
+
+    <input class="profiloNameCh form" type="text" placeholder="请输入中文名" data-ispass="0"/>
+
+    <input class="profiloNameEn form" type="text" placeholder="请输入英文名" data-ispass="0"/>
+</div>
+
+<!-- 上传封面图 -->
+<div class="picDiv addDiv">
+
+    <!-- 小标题 -->
+    <p class="divTitle">作品封面图</p>
+
+    <!-- 图片框容器 -->
+    <div class="preImgDiv">
+
+        <!-- 按钮容器 -->
+        <div class="buttomDiv hidden layer2">
+
+            <!-- 上传按钮 -->
+            <div class="doUpLoad publicPreImg layer3">上传图片</div>
+
+            <!-- 清除按钮 -->
+            <div class="clean publicPreImg layer3">清除图片</div>
+
+            <!-- 背景蒙版 -->
+            <div class="mask layer2"></div>
+
+        </div>
+
+        <!-- 图片 -->
+        <img class="preImg"/>
+
+        <!-- 隐藏按钮 -->
+        <input class="hidden upLoadPreImg form" type="file" accept="image/jpeg,image/jpg,image/gif,image/x-png" data-ispass="0"/>
+
+    </div>
+
+    <!-- 提示信息 -->
+    <p class="alertWord"> 尺寸规范：650px * 400px</p>
+
+</div>
+
+<!-- 输入作品分类 -->
+<div class="addDiv">
+
+    <!-- 小标题 -->
+    <p class="divTitle">作品分类</p>
+
+    <select name="一级分类" class="selection firstCate">
+
+        <option value="-1" class="firstCateOption" disabled selected style='display:none;'>选择一级标签</option>
+
+    </select>
+
+    <select name="二级分类" class="selection secondCate">
+
+        <option value="-1" class="secondCateOption" disabled selected style='display:none;'>选择二级标签(请先选择一级标签)</option>
+
+    </select>
+
+</div>
+
+<!-- 输入作品其他信息 -->
+<div class="addDiv">
+
+    <!-- 小标题 -->
+    <p class="divTitle">基本信息</p>
+
+    <!--  选择设计形式  -->
+    <select name="设计形式" class="selection desi">
+
+        <option value="-1" class="desiOption" disabled selected style='display:none;'>选择设计形式</option>
+
+    </select>
+
+    <input class="updateTime" type="text" disabled="disabled" placeholder="最近修改：自动生成"/>
+
+    <input class="createTime" type="text" disabled="disabled" placeholder="创建时间：自动生成"/>
+
+</div>
+
+<!-- 输入作品内容 -->
+<div class="addDiv worksContent">
+
+    <!-- 小标题 -->
+    <p class="divTitle">作品内容</p>
+
+    <div id="editor" class="form"></div>
+
+</div>
+
+<!-- 提交按钮 -->
+<div class="addDiv">
+
+    <div class="submit">
+        提交作品
+    </div>
+
+</div>
+
+<!--  富文本插件  -->
+<script src="/javaScript/common/wangEditor.min.js"></script>
+
+<!--  添加商品的方法  -->
+<script src="/javaScript/manager/addProfiloMethods.js"></script>
+
+<script>
+
+    // 就绪事件
+    $(() => {
+
+        // 富文本初始化
+        startEditor();
+
+        // 初始化加载一级分类
+        addFirstCate();
+
+        // 初始化加载设计形式
+        addDesi();
+
+        // 绑定上传封面的hover方法
+        $(".preImgDiv").hover(hoverPreImg,outPreImg);
+
+        // 点击上传图片
+        $(".doUpLoad").click(uploadImg);
+
+        // 图片上传完毕显示预览
+        $(".upLoadPreImg").change(preImg);
+
+        // 点击清除图片
+        $(".clean").click(cleanImg);
+
+        // 校验中文标题
+        $(".profiloNameCh").blur(checkNameCh);
+
+        // 校验英文标题
+        $(".profiloNameEn").blur(checkNameEn);
+
+        // 选择一级分类后加载二级分类
+        $(".firstCate").change(addSecondCate);
+
+        // 点击提交
+        $(".submit").click(doSubmit);
+
+    });
+
+    // 初始化富文本
+    function startEditor() {
+        // 创建富文本
+        let E = window.wangEditor;
+        let editor = new E("#editor");
+
+        // 注册到全局数据
+        globalData.editor = editor;
+
+        // 下面两个配置，使用其中一个即可显示“上传图片”的tab。但是两者不要同时使用！！！
+        editor.customConfig.uploadImgShowBase64 = true;      // 使用 base64 保存图片
+        // editor.customConfig.uploadImgServer = '/upload';  // 上传图片到服务器
+
+        // 开始创建
+        editor.create();
+    }
+
+    // 绑定上传封面的hover方法
+    function hoverPreImg() {
+        // 显示蒙版
+        $(".buttomDiv").removeClass("hidden");
+    }
+
+    // 绑定上传封面的out方法
+    function outPreImg() {
+        // 隐藏蒙版
+        $(".buttomDiv").addClass("hidden");
+    }
+
+    // 点击上传图片
+    function uploadImg() {
+        $(".upLoadPreImg").click();
+    }
+
+    // 图片上传完毕显示预览
+    function preImg() {
+        const imgUrl = doPreImg($(".upLoadPreImg"),$(".preImg"));
+        // 校验图片大小
+        if (getImgSize($(this))>=globalData.profiloCoverSize*1024*1024){
+            inputIsUnpass($(this),"图片太大,请修改");
+            return;
+        }
+        // 校验图片宽高
+        let img = new Image();
+        img.src = imgUrl;
+        img.onload = () => {
+            if (img.width!=globalData.profiloCoverWidth||img.height!=globalData.profiloCoverHeight){
+                inputIsUnpass($(this),"图片宽或高不符合要求");
+                return;
+            }
+        }
+        inputIsPass($(this));
+    }
+
+    // 点击清除图片
+    function cleanImg() {
+        cleanPreImg($(".preImg"));
+    }
+
+    // 校验中文标题
+    function checkNameCh(){
+        // 去除输入框内字符串首尾空格
+        const trim = trimAndSet($(this));
+        if (getBytesByUTF8(trim)>=globalData.maxProfiloNameCh){
+            inputIsUnpass($(this),"作品名字太长");
+        }else if (getBytesByUTF8(trim)<globalData.minProfiloNameCh){
+            inputIsUnpass($(this),"作品名字太短");
+        }else{
+            inputIsPass($(this));
+        }
+    }
+
+    // 校验英文标题
+    function checkNameEn(){
+        // 去除输入框内字符串首尾空格以及中文
+        const enTxt = onlyEn($(this));
+        if (getBytesByUTF8(enTxt)>=globalData.maxProfiloNameEn){
+            inputIsUnpass($(this),"作品名字太长");
+        }else if (getBytesByUTF8(enTxt)<globalData.minProfiloNameEn){
+            inputIsUnpass($(this),"作品名字太短");
+        }else{
+            inputIsPass($(this));
+        }
+    }
+
+    // 校验二级分类
+    function checkSecondCate() {
+        let val = $(".secondCate").val();
+        if (!val||val<1||typeof val=="undefined"){
+            return false;
+        }else {
+           return true;
+        }
+    }
+
+    // 校验设计形式
+    function checkDesi() {
+        if ($(".desi").val()<1||!$(".desi").val()||typeof ($(".desi").val())=="undefined"){
+            return false;
+        }else {
+            return true;
+        }
+    }
+
+    // 初始化加载一级分类
+    function addFirstCate (){
+        // 发起请求
+        $.get(globalInterface.getCateByCateId,{cateId:0},(r) => {
+           // 有错误信息则弹出
+           ajaxMsgHandle(r.message);
+           // 循环重新加载一级分类
+           const obj = r.result;
+           for (let i=0;i<obj.length;i++){
+               let option = "<option value ="+obj[i].cateId+" class='firstCateItem'>"+obj[i].cateName+"</option>"
+               $(".firstCate").append(option);
+           }
+        });
+    }
+
+    // 一级分类变化触发二级分类改变
+    function addSecondCate (){
+        // 发起请求
+        $.get(globalInterface.getCateByCateId,{cateId:$(".firstCate").val()},(r) => {
+            // 移除原有二级分类
+            $(".secondCateItem").remove();
+            const obj = r.result;
+            // 若当前一级分类下没有二级分类
+            if (obj==null||typeof (obj) == "undefined"||obj.length==0){
+                // 移除提示模块
+                $(".secondCateOption").remove();
+                // 重新加载提示模块
+                $(".secondCate").append("<option value='-1' class='secondCateOption' disabled selected style='display:none;'>"+r.message+"</option>");
+                // 不再执行此方法
+                return;
+            }
+            // 移除提示模块
+            $(".secondCateOption").remove();
+            // 重新添加提示模块
+            $(".secondCate").append("<option value='-1' class='secondCateOption' disabled selected style='display:none;'>"+"请选择二级分类"+"</option>");
+            // 循环重新加载二级分类
+            for (let i=0;i<obj.length;i++){
+                let option = "<option value ="+obj[i].cateId+" class='secondCateItem'>"+obj[i].cateName+"</option>"
+                $(".secondCate").append(option);
+            }
+        })
+    }
+
+    // 初始化加载设计形式
+    function addDesi(){
+        $.get(globalInterface.getAllDesi,(r) => {
+            const obj = r.result;
+            // 有错误信息则弹出
+            ajaxMsgHandle(r.message);
+            // 循环添加设计形式
+            for (let i=0;i<obj.length;i++){
+                let option = "<option value="+obj[i].desiId+" class='desiOption'>"+obj[i].desiName+"</option>";
+                $(".desi").append(option);
+            }
+        });
+    }
+
+    // 点击提交
+    function doSubmit(){
+
+        // 全局检查数据是否合法
+        // let checkResult = true;
+        if ($("[data-ispass='0']").length>0||!checkSecondCate()||!checkDesi()){
+            alert("有信息未能正确填写，请修改");
+            return;
+        }
+
+        // 若有不合法数据，直接终止提交
+        // if (!checkResult){
+        //     return;
+        // }
+
+        // 获取参数
+        let params = new FormData();
+        params.append("worksId",globalData.currentProfiloId);
+        params.append("worksName",$(".profiloNameCh").val());
+        params.append("worksEnName",$(".profiloNameEn").val());
+        params.append("coverImg",$(".upLoadPreImg").prop("files")[0]);
+        params.append("worksContent",globalData.editor.txt.html().toString());
+        params.append("worksCateId",$(".secondCate").val());
+        params.append("worksDesiId",$(".desi").val());
+
+        // 发起请求
+        $.ajax({
+            type:"post",
+            url:globalInterface.doSaveProfilo,
+            data:params,
+            async:false,
+            cache:false,
+            contentType:false,
+            processData:false,
+            success:(result) => {
+                ajaxMsgHandle(result.message);
+                $(".rightInnerArea").load(globalPath.addProfilo);
+            }
+        })
+
+    }
+
+</script>

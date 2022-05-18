@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="per.tom.clientview.dao.DesiDao">
+
+    <select id="getAllDesi" resultType="per.tom.clientview.pojo.DesiPo">
+        SELECT desi_id,desi_name,create_time,update_time
+        FROM desi;
+    </select>
+
+</mapper>

@@ -1,0 +1,61 @@
+# server
+server:
+  port: 8081
+  servlet:
+    context-path: /
+  tomcat:
+    uri-encoding: utf-8
+    max-threads: 3
+    min-spare-threads: 1
+# spring
+spring:
+  aop:
+    aspectj-autoproxy: proxy-target-class="true"
+  datasource:
+    url: jdbc:mysql:///profilo?serverTimezone=GMT%2B8&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: root
+  thymeleaf:
+    prefix: classpath:/templates/pages/
+    suffix: .html
+    encoding: utf-8
+  servlet:
+    multipart:
+      # 设置上传文件最大尺寸
+      max-file-size: 5MB
+      max-request-size: 10MB
+  # 设置前端页面接收的日期格式
+  jackson:
+    date-format: yyyy-MM-dd
+  task:
+    execution:
+      pool:
+        # 核心线程量,cpu核心数+1
+        core-size: 2
+        # 最大线程量
+        max-size: 2
+        # 等待队列量
+        queue-capacity: 100
+        # 空闲线程销毁时间
+        keep-alive: 30
+        # 不销毁核心线程
+        allow-core-thread-timeout: false
+      # 线程名字前缀
+      thread-name-prefix: clientView-
+  messages:
+    encoding: UTF-8
+# mybatis
+mybatis:
+  configuration:
+    default-statement-timeout: 30
+    # 驼峰命名映射
+    map-underscore-to-camel-case: true
+  mapper-locations:
+    - classpath:/Mapper/**/*.xml
+logging:
+  level:
+    per.tom: debug
+# 文件储存连接，包括图片视频等
+profilo:
+  filepath: /Users/wangbingxiao/OneDrive - Platinum/workspace/java/javaImage/profilo
+  fileshowpath: img.wbx.com

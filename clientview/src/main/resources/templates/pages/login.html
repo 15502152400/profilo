@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎登陆</title>
+    <style>
+
+        *{
+            text-align: center;
+            color: #666666;
+            margin: 0 auto;
+            font-family: "苹方-简";
+            font-family: "PingFang SC";
+            font-family: "Microsoft YaHei";
+            font-family: "微软雅黑";
+        }
+
+        /* 标题容器 */
+        .loginTitle{
+            margin-top: 15%;
+            width: 15%;
+        }
+
+        /* 中文字 */
+        .titleCh{
+            font-size: 3vw;
+            text-align-last: justify;
+        }
+
+        /* 英文字 */
+        .titleEn{
+            font-size: 1vw;
+            text-align-last: justify;
+            color: #999999;
+        }
+
+        /* 表单容器 */
+        .inPutDiv{
+            margin-top: 3vw;
+        }
+
+        /* 输入框公共样式 */
+        input{
+            margin-top: 1vw;
+            border-style: none;
+        }
+
+        /* 用户名和密码 */
+        .input{
+            width: 10vw;
+            height: 2vw;
+            display: block;
+            box-shadow: 1px 1px 2px #cccccc inset;
+        }
+
+        /* 登陆按钮容器 */
+        .doLoginDiv{
+            width: 10vw;
+            height: 2vw;
+            position: relative;
+        }
+
+        /* 登陆按钮容器 */
+        .rememberMe{
+            display: inline-block;
+            left: 0;
+        }
+        .button{
+            display: inline-block;
+            right: 0;
+            width: 5vw;
+            cursor: pointer;
+            transition: 0.7s;
+            font-size: 18px;
+            line-height: 36px;
+        }
+        .button:hover{
+            box-shadow: 1px 1px 2px #dddddd;
+            transition: 0.7s;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="loginTitle">
+    <p class="titleCh">欢迎登陆</p>
+    <p class="titleEn">W e l c o m e&nbsp;&nbsp;L o g i n</p>
+</p>
+</div>
+
+<div class="inPutDiv">
+    <input class="input userName" type="text" placeholder="输入手机号" autocomplete="off"/>
+    <input class="input userPassword" type="password" placeholder="输入密码" autocomplete="off"/>
+    <div class="doLoginDiv"><input class="rememberMe" type="checkbox" placeholder="记住我"/>&nbsp;记住我&nbsp;&nbsp;<div class="button">登&nbsp;&nbsp;陆</div></div>
+</div>
+</body>
+
+<!--  jQuery  -->
+<script src="/javaScript/common/jquery-3.4.1.min.js"></script>
+
+<!--  全局数据接口  -->
+<script src="/javaScript/globalInterface.js"></script>
+
+<!--  全局工具包  -->
+<script src="/javaScript/globalUntils.js"></script>
+
+<!--  全局页面url对象  -->
+<script src="/javaScript/globalPath.js"></script>
+
+<!--  登陆页方法  -->
+<script src="/javaScript/log/login.js"></script>
+
+<script>
+
+    $(() => {
+        // 点击登陆
+        $(".button").click(doLogIn);
+    });
+
+</script>
+</html>

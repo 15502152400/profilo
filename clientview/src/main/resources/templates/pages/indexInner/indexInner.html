@@ -1,0 +1,68 @@
+<style>
+
+    /* 最新作品 */
+    #lastProfilo,#lastVideo{
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 2vw;
+    }
+    /* 大标题 */
+    .innerTitle{
+        width: 50vw;
+        text-align: left;
+    }
+    .titelCh{
+        font-size: 1.5vw;
+        text-align: left;
+    }
+    .titelEn{
+        font-size: 1.2vw;
+        text-align: left;
+        color: #666666;
+    }
+
+</style>
+
+<!-- 最新作品 -->
+<div id="lastProfilo">
+    <!-- 标题 -->
+    <div class="innerTitle">
+        <p class="titelCh">最新作品</p>
+        <p class="titelEn">Last Works</p>
+    </div>
+</div>
+
+<!-- 最新视频 -->
+<div id="lastVideo">
+        <!-- 标题 -->
+        <div class="innerTitle">
+            <p class="titelCh">最新视频</p>
+            <p class="titelEn">Last Video</p>
+        </div>
+</div>
+
+<!-- 最新文章 -->
+<div id="lastWord">
+    <!-- 标题 -->
+    <div class="innerTitle">
+        <p class="titelCh">最新文章</p>
+        <p class="titelEn">Last Article</p>
+    </div>
+</div>
+<script>
+
+    // 就绪事件
+    $(() => {
+
+        // 获取最新作品
+        getNewProfilo($(".toProfilo").attr("data-id"),$("#lastProfilo"));
+
+        // 获取最新视频
+        getNewProfilo($(".toVedio").attr("data-id"),$("#lastVideo"));
+
+        // 获取最新文章
+        getNewProfilo($(".toArticle").attr("data-id"),$("#lastWord"));
+    });
+
+</script>

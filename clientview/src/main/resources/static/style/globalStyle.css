@@ -1,0 +1,44 @@
+*{
+    margin: 0 auto;
+    text-decoration: none;
+    text-align: center;
+    color: #333333;
+    font-family: "PingFang SC";
+    font-family: "苹方-简";
+    font-family: "Microsoft YaHei";
+    font-family: "微软雅黑";
+}
+
+/* 隐藏类 */
+.hidden{
+    display: none;
+    transition: 0.7s;
+}
+
+/* 准备中 */
+.reading{
+    font-size: 25px;
+    color: #666666;
+    line-height: 500px;
+    letter-spacing: 6px;
+}
+
+/* 图层1 */
+.layer1{
+    z-index: 1000;
+}
+
+/* 图层2 */
+.layer2{
+    z-index: 1001;
+}
+
+/* 图层3 */
+.layer3{
+    z-index: 1002;
+}
+
+/* 图层4 */
+.layer4{
+    z-index: 1003;
+}

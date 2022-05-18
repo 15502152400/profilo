@@ -1,0 +1,65 @@
+<style>
+
+    /* 按钮块 */
+    .pageDiv{
+        display: inline-block;
+        margin: 0 1vw;
+        font-size: 0.8vw;
+        line-height: 1.5vw;
+        color: #666666;
+        cursor: pointer;
+        vertical-align: top;
+    }
+    .pageDiv:hover{
+        color: #333333;
+    }
+
+    /* pageSize选项块 */
+    .pageSizeItem{
+        color: #666666;
+        font-size: 0.8vw;
+    }
+    .pageSizeItem:hover{
+        color: #333333;
+    }
+
+</style>
+
+<div class="pageDiv currentPage">当前页（）</div>
+<div class="pageDiv countPage">总页数（）</div>
+<div class="pageDiv pageSize">
+    <div class="pageSizeItem currentPageSize" data-pageSize="10">显示10条</div>
+    <div class="pageSizeItem hidden" data-pageSize="20">显示20条</div>
+    <div class="pageSizeItem hidden" data-pageSize="0">显示全部</div>
+</div>
+<div class="pageDiv firstPage">首页</div>
+<div class="pageDiv prePage">上一页</div>
+<div class="pageDiv nextPage">下一页</div>
+<div class="pageDiv lastPage">尾页</div>
+
+<script>
+
+    // 就绪事件
+    $(() => {
+
+        // 绑定pageSize的hover事件
+        $(".pageSize").hover(hoverPageSize,outPageSize);
+
+        // 点击下一页
+        $(".nextPage").click(toNextPage);
+
+        // 点击上一页
+        $(".prePage").click(toPrePage);
+
+        // 点击首页
+        $(".firstPage").click(toFirstPage);
+
+        // 点击尾页
+        $(".lastPage").click(toLastPage);
+
+        // 选择pageSize
+        $(".pageSizeItem").click(choosePageSize);
+
+    });
+
+</script>

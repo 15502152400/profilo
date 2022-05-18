@@ -1,0 +1,62 @@
+<style>
+
+    /* 分类内容容器 */
+    .innerClassify{
+        width: 6vw;
+        padding-top: 1.5vw;
+    }
+
+    /* 分类内容 */
+    .innerClassifyItem{
+        font-size: 0.8vw;
+        line-height: 2.5vw;
+        color: #555555;
+        cursor: pointer;
+        width: 4.5vw;
+        transition: 0.5s;
+    }
+    .innerClassifyItem:hover{
+        color: #333333;
+        transition: 0.5s;
+    }
+
+    /* 分类标题 */
+    .innerClassifytitle{
+        font-size: 1.2vw;
+        height: 3.5vw;
+    }
+    /* 分类标题英文 */
+    .titelEn{
+        font-size: 0.5vw;
+        color: #666666;
+        letter-spacing: 0.1vw;
+    }
+
+    /* 被选中的分类 */
+    .selectICI{
+        box-shadow: 1px 1px 3px #cccccc inset;
+        color: #333333;
+        transition: 0.7s;
+    }
+
+</style>
+
+<div class="innerClassify">
+    <div class="innerClassifytitle">作品分类<br><p class="titelEn">Classification</p></div>
+    <div class="innerClassifyItem selectICI" data-id="0">全部分类</div>
+</div>
+
+<script>
+
+    // 就绪事件
+    $(() => {
+
+        // 获取并添加二级分类
+        getInnerCate();
+
+        // 绑定二级分类点击事件
+        $(".innerClassify").on("click",".innerClassifyItem",chooseInnerCate);
+
+    });
+
+</script>

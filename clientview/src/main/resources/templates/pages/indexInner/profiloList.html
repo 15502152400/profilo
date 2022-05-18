@@ -1,0 +1,59 @@
+<style>
+
+    /* 分类区域 */
+    .cateArea{
+        width: 18vw;
+        display: inline-block;
+        vertical-align: bottom;
+        position: absolute;
+        left: 0;
+    }
+
+    /* 内容区域 */
+    .itemArea{
+        width: 63vw;
+        min-height: 900px;
+        display: inline-block;
+        vertical-align: bottom;
+    }
+
+    /* 分页区域 */
+    .pagenationArea{
+        margin-top: 0.7vw;
+        width: 60vw;
+        height: 3vw;
+    }
+
+</style>
+
+<!-- 分类区域 -->
+<div class="cateArea">
+
+</div>
+
+<!-- 内容区域 -->
+<div class="itemArea">
+
+</div>
+
+<!-- 分页区域 -->
+<div class="pagenationArea">
+
+</div>
+
+<script>
+
+    $(() => {
+
+        // 加载分页
+        $(".pagenationArea").load(globalPath.pagenation);
+
+        // 加载二级分类
+        $(".cateArea").load(globalPath.innerClassify);
+
+        // 加载此一级分类下全部内容
+        loadProfiloByCateIdPage();
+
+    })
+
+</script>

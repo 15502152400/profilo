@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="per.tom.clientview.dao.UserDao">
+
+    <insert id="insertUser">
+        INSERT INTO user (user_id,user_tel,user_status,user_name,user_header_path,user_gender,user_salt,user_password,role_id,create_time,update_time)
+        VALUES
+        (null,#{userTel},1,#{userName},'/image/user/header.jpeg',#{userGender},#{userSalt},#{userPassword},#{roleId},now(),now());
+    </insert>
+
+    <select id="selectUserByTel" resultType="per.tom.clientview.pojo.UserPo">
+        SELECT user_id,user_tel,user_status,user_name,user_header_path,user_gender,user_salt,user_password,role_id,create_time,update_time
+        FROM user
+        WHERE user_tel=#{userTel};
+    </select>
+
+</mapper>

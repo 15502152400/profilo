@@ -1,0 +1,114 @@
+<!-- 样式模块 -->
+<link href="style/manager/updateCate.css" rel="stylesheet">
+
+<!-- 模块标题 -->
+<p class="modelTitle">修改分类</p>
+<!-- 条件筛选 -->
+<div class="addDiv selectArea">
+    <select class="firstCate queryItem">
+        <option value="-1">所有分类</option>
+        <option value="0">一级分类</option>
+    </select>
+    <select class="createTimeOrder queryItem">
+        <option class="descOrder" value="0">时间降序</option>
+        <option class="ascOrder" value="1">时间升序</option>
+    </select>
+    <div class="doQuery queryItem">点击查询</div>
+</div>
+<!-- 表格 -->
+<table class="addDiv tableArea">
+    <!-- 表头行 -->
+    <tr>
+        <td class="tableTitle">
+            分类名字
+        </td>
+        <td class="tableTitle">
+            上级分类
+        </td>
+        <td class="tableTitle">
+            创建时间
+        </td>
+        <td class="tableTitle">
+            最后更新
+        </td>
+        <td class="tableTitle">
+            全选:
+            <input type="checkbox" class="checkAll"/>
+            <div class="deleteChecked">删除所选</div>
+        </td>
+    </tr>
+    <!-- 分类行 -->
+<!--    <tr class="cateItem">-->
+<!--        <td class="tableContent">-->
+<!--            <input type="text" class="cateName contentInput" placeholder="首页" disabled/>-->
+<!--        </td>-->
+<!--        <td class="tableContent">-->
+<!--            <select class="cateParent contentInput" disabled>-->
+<!--                <option value="0" class="cateParentOption">一级分类</option>-->
+<!--            </select>-->
+<!--        </td>-->
+<!--        <td class="tableContent">-->
+<!--            2020-10-2-->
+<!--        </td>-->
+<!--        <td class="tableContent">-->
+<!--            2020-10-2-->
+<!--        </td>-->
+<!--        <td class="tableContent">-->
+<!--            选中:-->
+<!--            <input type="checkbox" class="checkThis"/>-->
+<!--            <div class="deleteThis contentButton">删除</div>-->
+<!--            <div class="updateThis contentButton">修改</div>-->
+<!--            <div class="saveUpdate contentButton" style="display: none">保存</div>-->
+<!--        </td>-->
+<!--    </tr>-->
+
+</table>
+<!-- 分页 -->
+<div class="addDiv pagenationArea"></div>
+
+<!-- 加载修改分类方法 -->
+<script src="/javaScript/manager/updateCate.js"></script>
+<script>
+
+    // 就绪事件
+    $(() => {
+
+        // 重置分页
+        resetCurrentPage();
+
+        // 加载分页模块
+        $(".pagenationArea").load(globalPath.pagenation);
+
+        // 加载一级分类选择框并返回选择框
+        loadFirstCate();
+
+        // 分页加载所有分类
+        loadCate();
+
+        // 点击查询
+        $(".doQuery").click(doQuery);
+
+        // 点击全选
+        $(".checkAll").click(checkedAll);
+
+        // 点击删除所选
+        $(".deleteChecked").click(deleteChecked);
+
+        // 点击删除
+        $(".tableArea").on("click",".deleteThis",deleteThis);
+
+        // 点击修改
+        $(".tableArea").on("click",".updateThis",updateThis);
+
+        // 点击保存
+        $(".tableArea").on("click",".saveUpdate",saveUpdate);
+
+        // 校验数据合法性
+        $(".tableArea").on("blur",".cateName",checkInput);
+
+        // 校验数据是否改动
+        $(".tableArea").on("blur",".cateName,.cateParent",isChange);
+
+    });
+
+</script>

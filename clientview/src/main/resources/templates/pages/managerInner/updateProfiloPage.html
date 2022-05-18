@@ -1,0 +1,328 @@
+<style>
+
+    /* 编辑模块统一样式 */
+    .addDiv{
+        width: 45%;
+        margin-top: 30px;
+        transition: 0.3s;
+        padding-bottom: 15px;
+    }
+
+    /* 作品内容编辑模块 */
+    .worksContent{
+        width: 90%;
+    }
+
+    /* 富文本 */
+    #editor{
+        width: 90%;
+    }
+
+    /* 编辑模块标题 */
+    .divTitle{
+        font-size: 20px;
+        line-height: 48px;
+        color: #666666;
+        margin-bottom: 5px;
+    }
+
+    /* 输入框统一样式 */
+    .addDiv input{
+        /*display: block;*/
+        width: 75%;
+        height: 35px;
+        border-style: none;
+        box-shadow: 1px 1px 3px #cccccc inset;
+    }
+    .profiloNameEn{
+        margin-top: 15px;
+    }
+
+    /* 下拉框统一样式 */
+    .selection{
+        text-align-last: center;
+        display: block;
+        width: 200px;
+        margin-bottom: 15px;
+        height: 30px;
+    }
+
+     /* 二级分类下拉框 */
+     .secondCate{
+         margin-bottom: 0;
+     }
+
+    /* 创建时间样式 */
+    .createTime{
+        margin-top: 15px;
+    }
+
+/*=========================== 图片上传模块  ===========================*/
+
+    /* 图片预览 */
+    .preImgDiv{
+        width: 325px;
+        height: 200px;
+        position: relative;
+        border: 1px solid #f9f9f9;
+    }
+
+    /* 图片 */
+    .preImg{
+       width: 100%;
+       height: 100%;
+       border-style: none;
+    }
+
+    /* 按钮容器 */
+    .buttomDiv{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: 0.7s;
+        background: none;
+    }
+
+    /* 背景蒙版 */
+    .mask{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #ffffff;
+        opacity: 0.6;
+    }
+
+    /* 上传和清除按钮的公共样式 */
+    .publicPreImg{
+        position: absolute;
+        left: 15%;
+        width: 70%;
+        font-size: 14px;
+        line-height: 36px;
+        color: #ffffff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    /* 上传按钮 */
+    .doUpLoad{
+        top: 25%;
+        background-color: rgba(23, 174, 3, 0.72);
+    }
+    .doUpLoad:hover{
+        background-color: rgba(23, 174, 3, 0.9);
+    }
+
+    /* 清除按钮 */
+    .clean{
+        top: 60%;
+        background-color: rgba(255, 0, 0, 0.65);
+    }
+    .clean:hover{
+        background-color: rgba(255, 0, 0, 0.75);
+    }
+
+    /* 尺寸提示 */
+    .alertWord{
+        font-size: 12px;
+        color: #999999;
+    }
+
+/*=========================== 最后提交模块  ===========================*/
+
+    /* 公共样式 */
+    .lastButton{
+        font-size: 16px;
+        line-height: 48px;
+        width: 200px;
+        color: #666666;
+        border: 1px solid #999999;
+        border-radius: 200px;
+        cursor: pointer;
+        transition: 0.5s;
+        display: inline-block;
+        margin: 0 20px;
+    }
+    .lastButton:hover{
+        color: #ffffff;
+        transition: 0.5s;
+        font-weight: bold;
+    }
+
+    /* 提交按钮 */
+    .submit:hover{
+        background-color: rgba(23, 174, 3, 0.72);
+    }
+
+    /* 预览按钮 */
+    .preLook:hover{
+        background-color: #aee3ff;
+    }
+</style>
+
+<!-- 模块标题 -->
+<p class="modelTitle">添加作品</p>
+
+<!-- 输入作品名字 -->
+<div class="nameDiv addDiv">
+
+    <!-- 小标题 -->
+    <p class="divTitle">作品名字</p>
+
+    <input class="profiloNameCh form" type="text" placeholder="请输入中文名" data-ispass="0"/>
+
+    <input class="profiloNameEn form" type="text" placeholder="请输入英文名" data-ispass="0"/>
+</div>
+
+<!-- 上传封面图 -->
+<div class="picDiv addDiv">
+
+    <!-- 小标题 -->
+    <p class="divTitle">作品封面图</p>
+
+    <!-- 图片框容器 -->
+    <div class="preImgDiv">
+
+        <!-- 按钮容器 -->
+        <div class="buttomDiv hidden layer2">
+
+            <!-- 上传按钮 -->
+            <div class="doUpLoad publicPreImg layer3">上传图片</div>
+
+            <!-- 清除按钮 -->
+            <div class="clean publicPreImg layer3">清除图片</div>
+
+            <!-- 背景蒙版 -->
+            <div class="mask layer2"></div>
+
+        </div>
+
+        <!-- 图片 -->
+        <img class="preImg"/>
+
+        <!-- 隐藏按钮 -->
+        <input class="hidden upLoadPreImg form" type="file" accept="image/jpeg,image/jpg,image/gif,image/x-png" data-ispass="0"/>
+
+    </div>
+
+    <!-- 提示信息 -->
+    <p class="alertWord"> 尺寸规范：650px * 400px</p>
+
+</div>
+
+<!-- 输入作品分类 -->
+<div class="addDiv">
+
+    <!-- 小标题 -->
+    <p class="divTitle">作品分类</p>
+
+    <select name="一级分类" class="selection firstCate">
+
+        <option value="-1" class="firstCateOption" disabled selected style='display:none;'>选择一级标签</option>
+
+    </select>
+
+    <select name="二级分类" class="selection secondCate">
+
+        <option value="-1" class="secondCateOption" disabled selected style='display:none;'>选择二级标签(请先选择一级标签)</option>
+
+    </select>
+
+</div>
+
+<!-- 输入作品其他信息 -->
+<div class="addDiv">
+
+    <!-- 小标题 -->
+    <p class="divTitle">基本信息</p>
+
+    <!--  选择设计形式  -->
+    <select name="设计形式" class="selection desi">
+
+        <option value="-1" class="desiOption" disabled selected style='display:none;'>选择设计形式</option>
+
+    </select>
+
+    <input class="updateTime" type="text" disabled="disabled" placeholder="最近修改：自动生成"/>
+
+    <input class="createTime" type="text" disabled="disabled" placeholder="创建时间：自动生成"/>
+
+</div>
+
+<!-- 输入作品内容 -->
+<div class="addDiv worksContent">
+
+    <!-- 小标题 -->
+    <p class="divTitle">作品内容</p>
+
+    <div id="editor" class="form"></div>
+
+</div>
+
+<!-- 提交按钮 -->
+<div class="addDiv">
+
+    <div class="preLook lastButton">
+        预览作品
+    </div>
+
+    <div class="submit lastButton">
+        提交作品
+    </div>
+
+</div>
+
+<!--  富文本插件  -->
+<script src="/javaScript/common/wangEditor.min.js"></script>
+
+<!--  添加商品的方法  -->
+<script src="/javaScript/manager/addProfiloMethods.js"></script>
+
+<script>
+
+    // 就绪事件
+    $(() => {
+
+        // 富文本初始化
+        startEditor();
+
+        // 初始化加载一级分类
+        addFirstCate();
+
+        // 初始化加载设计形式
+        addDesi();
+
+        // 绑定上传封面的hover方法
+        $(".preImgDiv").hover(hoverPreImg,outPreImg);
+
+        // 点击上传图片
+        $(".doUpLoad").click(uploadImg);
+
+        // 图片上传完毕显示预览
+        $(".upLoadPreImg").change(preImg);
+
+        // 点击清除图片
+        $(".clean").click(cleanImg);
+
+        // 校验中文标题
+        $(".profiloNameCh").blur(checkNameCh);
+
+        // 校验英文标题
+        $(".profiloNameEn").blur(checkNameEn);
+
+        // 选择一级分类后加载二级分类
+        $(".firstCate").change(addSecondCate);
+
+        // 点击预览
+        $(".preLook").click(doPreLook);
+
+        // 点击提交
+        $(".submit").click(doSubmit);
+
+    });
+
+</script>
