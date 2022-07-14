@@ -21,9 +21,17 @@ var globalData = {
     // 作品英文名字最小字节
     minProfiloNameEn: 1,
     // 作品封面图宽(px)
-    profiloCoverWidth: 650,
+    profiloCoverWidth: 1018,
     // 作品封面图高(px)
-    profiloCoverHeight: 400,
+    profiloCoverHeight: 757,
     // 作品封面图最大容量(mb)
-    profiloCoverSize: 3
+    profiloCoverSize: 3,
+    // 分类名最小字节
+    minCateName:1,
+    // 分类名最大字节
+    maxCateName:30,
+    // 设计形式最大字节
+    maxDesiName:30,
+    // 设计形式最小字节
+    minDesiName:1
 }

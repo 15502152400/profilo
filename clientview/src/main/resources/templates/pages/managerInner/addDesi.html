@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+
+<!-- 样式模块 -->
+<link href="style/manager/addDesi.css" rel="stylesheet">
+
+<!-- 模块标题 -->
+<p class="modelTitle">添加形式</p>
+
+<div class="addDiv">
+    <input type="text" class="desiName input" placeholder="请输入形式名字" data-ispass="0"/>
+</div>
+
+<div class="addDiv">
+    <div class="submit">
+        点击提交
+    </div>
+</div>
+
+<!--  添加分类的方法  -->
+<script src="/javaScript/manager/addDesi.js"></script>
+<script>
+
+    // 文档就绪事件
+    $(() => {
+
+        // 检查形式名字
+        $(".desiName").blur(checkDesiName);
+
+        // 点击提交
+        $(".submit").click(submit);
+
+    });
+
+</script>

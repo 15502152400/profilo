@@ -1,0 +1,30 @@
+/* 输入框公共样式 */
+.input{
+    display: block;
+    width: 50%;
+    height: 36px;
+    box-shadow: 1px 1px 3px #cccccc inset;
+    border-style: none;
+}
+
+/* 输入框区域公共样式 */
+.addDiv{
+    margin: 30px auto;
+}
+
+/* 提交按钮 */
+.submit{
+    font-size: 16px;
+    line-height: 48px;
+    width: 200px;
+    color: #666666;
+    border: 1px solid #999999;
+    border-radius: 200px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.submit:hover{
+    background-color: rgba(23, 174, 3, 0.72);
+    transition: 0.5s;
+    color: #ffffff;
+}

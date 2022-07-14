@@ -20,6 +20,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserDao userDao;
 
+    @Autowired
+    AssertBase assertBase;
+
     @Override
     public String addUser(UserPo userPo) {
 
@@ -40,9 +43,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserPo findUserByTel(String userTel) {
-        AssertBase.assertBase(userTel.length()!=11);
+        assertBase.assertBase(userTel.length()!=11);
         UserPo userPo = userDao.selectUserByTel(userTel);
-        AssertBase.assertBase(userPo==null);
+        assertBase.assertBase(userPo==null);
         return userPo;
     }
 
@@ -50,10 +53,10 @@ public class UserServiceImpl implements UserService {
     // 添加用户的参数校验方法
     public void checkAddUser(UserPo u){
         String m = "您有必填项目未填写或者未填写正确";
-        AssertBase.asserNumber(u.getUserGender(), 1, 0,m);
-        AssertBase.asserString(u.getUserName(), userConfig.getMaxUserName(), userConfig.getMinUserName(),m);
-        AssertBase.assertTel(u.getUserTel());
-        AssertBase.assertPass(u.getUserPassword());
+        assertBase.asserNumber(u.getUserGender(), 1, 0,m);
+        assertBase.asserString(u.getUserName(), userConfig.getMaxUserName(), userConfig.getMinUserName(),m);
+        assertBase.assertTel(u.getUserTel());
+        assertBase.assertPass(u.getUserPassword());
     }
 
 }

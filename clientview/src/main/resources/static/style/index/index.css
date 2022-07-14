@@ -1,0 +1,71 @@
+/*============ 首页banner区 ============*/
+#bannerArea{
+    width: 100vw;
+    height: 46.39vw;
+    background-image: url("/image/index/banner.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+/* 导航区 */
+.navArea{
+    width: 42.55vw;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    /* 单个导航块 */
+    .nav{
+        width: 72px;
+        height: 36px;
+        display: inline-block;
+        line-height: 36px;
+        color: #ffffff;
+        font-size: 14px;
+        transition: 1.5s;
+        cursor: pointer;
+    }
+    .nav:hover{
+        font-weight: bold;
+    }
+    /* 被选中的导航块儿 */
+    .selectNav{
+        border: #eeeeee 1px solid;
+    }
+
+/*============ 中间内容区 ============*/
+#contentArea,.deatailArea{
+    width: 100vw;
+    position: relative;
+}
+
+/*============ footer区 ============*/
+#footerArea{
+    width: 100vw;
+    height: 33.16vw;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+    /* footer图片 */
+    .footerImg{
+        margin-top: 7.73vw;
+        width: 100vw;
+    }
+
+    /* e-mail */
+    .email{
+        margin-top: 2.57vw;
+        font-size: 1.25vw;
+        line-height: 1.25vw;
+    }
+    s
+    /* 备案号 */
+    .sbNum{
+        margin-top: 0.687vw;
+        font-size: 0.93vw;
+        color: #666666;
+        line-height: 0.95vw;
+    }

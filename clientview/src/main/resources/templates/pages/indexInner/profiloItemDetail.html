@@ -1,26 +1,6 @@
-<style>
 
-    .detailWorkTitle{
-        width: 50vw;
-        text-align: left;
-    }
-
-    .detailWorkTitleCh{
-        font-size: 1.2vw;
-        text-align: left;
-    }
-    .detailWorkTitleEn{
-        font-size: 1vw;
-        text-align: left;
-        color: #666666;
-    }
-
-    .profiloDetail{
-        width: 50vw;
-        min-height: 500px;
-    }
-
-</style>
+<!-- 样式模块 -->
+<link href="style/index/profiloItemDetail.css" rel="stylesheet">
 
 <!-- 标题 -->
 <div class="detailWorkTitle">
@@ -32,3 +12,20 @@
 <div class="profiloDetail">
 
 </div>
+
+<!-- 返回上一页 -->
+<div class="back">返回上一页</div>
+<script>
+
+    $(()=>{
+        // 绑定返回按键
+        $(".back").click(back);
+    });
+
+    // 返回上一页
+    function back() {
+        $("#contentArea").removeClass("hidden");
+        $(".deatailArea").addClass("hidden");
+    }
+
+</script>

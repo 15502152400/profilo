@@ -62,4 +62,14 @@
 
     });
 
+    // hover pageSize页面
+    function hoverPageSize(){
+        // 显示出所有pageSize
+        $(".pageSizeItem").removeClass("hidden");
+    }
+    function outPageSize(){
+        // 隐藏除当前pageSize以外的所有pageSize
+        $(".pageSizeItem:not(.currentPageSize)").addClass("hidden");
+    }
+
 </script>

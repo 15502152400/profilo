@@ -1,0 +1,36 @@
+.detailWorkTitle{
+    margin-top: 3vw;
+    width: 50vw;
+    text-align: left;
+}
+
+.detailWorkTitleCh{
+    font-size: 1.2vw;
+    text-align: left;
+}
+.detailWorkTitleEn{
+    font-size: 1vw;
+    text-align: left;
+    color: #666666;
+}
+
+.profiloDetail{
+    width: 50vw;
+    min-height: 500px;
+}
+
+.back{
+    width: 8vw;
+    height: 2vw;
+    font-size: 1vw;
+    line-height: 2vw;
+    border: solid 1px #666666;
+    margin-bottom: 3vw;
+    transition: 1s;
+    cursor: pointer;
+}
+.back:hover{
+    border-radius: 50px;
+    background-color: #a8ef8d;
+    color: #ffffff;
+}

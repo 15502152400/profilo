@@ -1,0 +1,76 @@
+/* 分类区域 */
+.cateArea{
+    width: 18vw;
+    display: inline-block;
+    vertical-align: bottom;
+    position: absolute;
+    left: 0;
+}
+
+/* 内容区域 */
+.itemArea{
+    width: 63vw;
+    min-height: 900px;
+    display: inline-block;
+    vertical-align: bottom;
+    padding-bottom: 3vw;
+}
+
+    /* 作品 */
+    .profileItem{
+        margin-top: 3vw;
+        height: 14vw;
+        width: 36vw;
+        border-radius: 0.2vw;
+        transition: 1s;
+        cursor: pointer;
+    }
+    .profileItem:hover{
+        box-shadow: 0px 0px 5px #999999;
+        transform:scale(1.05,1.05);
+    }
+
+        /* 左侧图片 */
+        .itemImg{
+            display: inline-block;
+            margin-top: 0.5vw;
+            width: 17.5vw;
+            height: 13vw;
+            vertical-align: top;
+        }
+        .itemImg img{
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 右侧文字 */
+        .itemInfo{
+            display: inline-block;
+            margin-top: 0.5vw;
+            vertical-align: top;
+            width: 17.5vw;
+            height: 13vw;
+        }
+            .itemTitle{
+                margin-top: 4vw;
+                margin-left: 6vw;
+                font-size: 1.2vw;
+                color: #333333;
+                text-align: left;
+            }
+            .itemDetail{
+                margin-left: 6vw;
+                font-size: 0.7vw;
+                line-height: 1.2vw;
+                color: #666666;
+                text-align: left;
+            }
+
+
+
+/* 分页区域 */
+.pagenationArea{
+    margin-top: 0.7vw;
+    width: 60vw;
+    height: 3vw;
+}

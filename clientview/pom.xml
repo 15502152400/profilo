@@ -6,9 +6,9 @@
         <groupId>per.tom</groupId>
         <artifactId>profilo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+<!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
     </parent>
-    <groupId>per.tom</groupId>
+<!--    <groupId>per.tom</groupId>-->
     <artifactId>clientview</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>clientview</name>

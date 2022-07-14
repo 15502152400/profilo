@@ -6,16 +6,16 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.6.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+<!--        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
     </parent>
+    <groupId>per.tom</groupId>
+    <artifactId>profilo</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>profile</name>
     <modules>
         <module>clientview</module>
     </modules>
-    <groupId>per.tom</groupId>
-    <artifactId>profilo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>profilo</name>
-    <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>11</java.version>

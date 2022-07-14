@@ -7,163 +7,56 @@
     <!--  全局css  -->
     <link href="style/globalStyle.css" rel="stylesheet">
 
-    <style>
+    <!--  样式模块  -->
+    <link href="style/manager/manager.css" rel="stylesheet">
 
-/*================== 全局和结构性样式 ==================*/
-
-        *{
-            background-color: #ffffff;
-        }
-
-        body{
-            background-color: #eeeeee;
-            width: 100vw;
-            height: 100vh;
-        }
-
-        /* 顶部登陆用户的信息 */
-        .topUserInfoArea{
-            position: absolute;
-            top: 0;
-            width: 100vw;
-            height: 7vh;
-            margin-bottom: 10px;
-            box-shadow: 1px 1px 3px #dddddd;
-        }
-
-        /* 左侧选项菜单 */
-        .leftTagsArea{
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 14vw;
-            height: 92vh;
-            box-shadow: 1px 1px 3px #dddddd;
-        }
-
-        /* 右侧内容区 */
-        .rightInnerArea{
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            width: 85vw;
-            height: 92vh;
-            box-shadow: 1px 1px 3px #dddddd;
-            overflow: scroll;
-        }
-
-        /* 被选中的一级选项 */
-        .selected{
-            box-shadow: 1px 1px 3px #cccccc inset;
-            transition: 0.3s;
-        }
-
-        /* 编辑页面标题 */
-        .modelTitle{
-            font-size: 28px;
-            line-height: 72px;
-            border-bottom: 1px solid #eeeeee;
-        }
-
-/*================== 顶部登陆用户的信息 ==================*/
-
-        /* 顶部标题 */
-        .pageTitle{
-            position: absolute;
-            left: 0;
-            font-size: 30px;
-            line-height: 7vh;
-            text-align: left;
-            display: inline-block;
-        }
-
-        /* 用户信息容器 */
-        .userInfoDiv{
-            position: absolute;
-            right: 30px;
-            display: inline-block;
-            height: 100%;
-            cursor: pointer;
-        }
-
-        /* 头像容器 */
-        .headerDiv{
-            margin-top: 1vh;
-            height: 4vh;
-            width: 4vh;
-        }
-        .headerDiv img{
-            width: 100%;
-            height: 100%;
-        }
-        /* 用户名 */
-        .userName{
-            font-size: 12px;
-            color: #666666;
-            line-height: 2vh;
-        }
-
-/*================== 左侧选项菜单 ==================*/
-
-        /* 选项区标题 */
-        .tagsTitle{
-            font-size: 18px;
-            line-height: 64px;
-            border-bottom: 1px solid #eeeeee;
-        }
-
-        /* 一级选项容器 */
-        .tagDiv{
-            width: 70%;
-            margin-top: 30px;
-            padding: 2px;
-            transition: 0.7s;
-        }
-
-        /* 一级选项 */
-        .title1{
-            font-size: 16px;
-            line-height: 32px;
-            cursor: pointer;
-        }
-        .title1:hover{
-            color: #000000;
-        }
-        /* 二级选项 */
-        .title2{
-            font-size: 14px;
-            line-height: 28px;
-            color: #666666;
-            cursor: pointer;
-        }
-        .title2:hover{
-            color: #333333;
-        }
-
-        /* 退出登陆 */
-        .logout{
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            font-size: 18px;
-            line-height: 64px;
-            border-top: 1px solid #eeeeee;
-            cursor: pointer;
-            transition: 0.5s;
-        }
-        .logout:hover{
-            color: #ffffff;
-            background-color: rgba(255, 0, 0, 0.65);
-            transition: 0.5s;
-            font-weight: bold;
-        }
-
-    </style>
 </head>
 <body>
 
+    <!-- 第一层弹窗蒙版 -->
+    <div class="layer3 hidden popupMask"></div>
+
+    <!-- 第一层弹窗模块 -->
+    <div class="layer4 hidden popup">
+        <!-- 弹窗顶部内容区 -->
+        <div class="popupTop">
+            <!-- 弹窗标题 -->
+            <p class="popupTitle">弹窗内容标题</p>
+            <!-- 右侧关闭按钮 -->
+            <div class="popupClose">
+                <!-- 竖条 -->
+                <div class="popupCloseVertical"></div>
+                <!-- 横条 -->
+                <div class="popupCloseLevel"></div>
+            </div>
+        </div>
+        <!-- 第一层弹窗内容区 -->
+        <div class="popupInner"></div>
+    </div>
+
+    <!-- 第二层弹窗蒙版 -->
+    <div class="layer5 hidden popupMask2"></div>
+
+    <!-- 第二层弹窗模块 -->
+    <div class="layer6 hidden popup2">
+        <!-- 弹窗顶部内容区 -->
+        <div class="popupTop">
+            <!-- 弹窗标题 -->
+            <p class="popupTitle2">弹窗内容标题</p>
+            <!-- 右侧关闭按钮 -->
+            <div class="popupClose">
+                <!-- 竖条 -->
+                <div class="popupCloseVertical"></div>
+                <!-- 横条 -->
+                <div class="popupCloseLevel"></div>
+            </div>
+        </div>
+        <!-- 第二层弹窗内容区 -->
+        <div class="popupInner2"></div>
+    </div>
+
     <!--  顶部登陆用户的信息  -->
-    <div class="topUserInfoArea">
+    <div class="topUserInfoArea managerDIv">
 
         <!--  顶部标题  -->
         <p class="pageTitle"><b>&emsp;&emsp;&emsp;&emsp;&emsp;Tom Wang--</b>个人主页后台管理系统</p>
@@ -184,7 +77,7 @@
     </div>
 
     <!--  左侧选项菜单  -->
-    <div class="leftTagsArea">
+    <div class="leftTagsArea managerDIv">
 
         <!--  选项区标题  -->
         <p class="tagsTitle">管理选项</p>
@@ -201,85 +94,59 @@
             <p class="title2 hidden" data-url="/managerInner/addCate">添加分类</p>
         </div>
 
+        <div class="tagDiv">
+            <p class="title1"><b>·</b>形式管理</p>
+            <p class="title2 hidden" data-url="/managerInner/updateDesi">修改形式</p>
+            <p class="title2 hidden" data-url="/managerInner/addDesi">添加形式</p>
+        </div>
+
         <!--  退出登陆  -->
         <p class="logout">退出登陆</p>
 
     </div>
 
     <!--  右侧内容区  -->
-    <div class="rightInnerArea"></div>
+    <div class="rightInnerArea managerDIv"></div>
 
 </body>
 
-    <!--  jQuery  -->
-    <script src="/javaScript/common/jquery-3.4.1.min.js"></script>
+<!--  jQuery  -->
+<script src="/javaScript/common/jquery-3.4.1.min.js"></script>
 
-    <!--  全局数据对象  -->
-    <script src="/javaScript/globalData.js"></script>
+<!--  全局数据对象  -->
+<script src="/javaScript/globalData.js"></script>
 
-    <!--  全局页面url对象  -->
-    <script src="/javaScript/globalPath.js"></script>
+<!--  全局页面url对象  -->
+<script src="/javaScript/globalPath.js"></script>
 
-    <!--  全局工具包  -->
-    <script src="/javaScript/globalUntils.js"></script>
+<!--  全局工具包  -->
+<script src="/javaScript/globalUntils.js"></script>
 
-    <!--  全局数据接口  -->
-    <script src="/javaScript/globalInterface.js"></script>
+<!--  全局数据接口  -->
+<script src="/javaScript/globalInterface.js"></script>
 
-    <script>
+<!--  管理页面首页方法  -->
+<script src="/javaScript/manager/managerIndex.js"></script>
 
-        // 就绪事件
-        $(() => {
+<script>
 
-            // 点击一级选项
-            $(".title1").click(clickTitle1);
-
-            // 点击二级选项
-            $(".title2").click(clickTitle2);
-
-            // 点击退出登陆
-            $(".logout").click(doLogOut);
-
-        });
+    // 就绪事件
+    $(() => {
 
         // 点击一级选项
-        function clickTitle1(){
-            const me = $(this);
-            // 如果已经被选择
-            if(me.parent().hasClass("selected")){
-                // 隐藏二级选项
-                me.siblings().addClass("hidden");
-                // 取消选择的class
-                me.parent().removeClass("selected");
-            // 如果没有被选择
-            }else {
-                // 显示二级选项
-                me.siblings().removeClass("hidden");
-                // 添加选择class
-                me.parent().addClass("selected");
-            }
-        }
+        $(".title1").click(clickTitle1);
 
         // 点击二级选项
-        function clickTitle2(){
-            // 读取html
-            const me = $(this);
-            $(".rightInnerArea").load(me.attr("data-url"));
-            // 重置全局数据
-            resetGlobalData();
-        }
+        $(".title2").click(clickTitle2);
 
         // 点击退出登陆
-        function doLogOut(){
-            // 发送退出请求
-            $.post(globalInterface.doLogOut);
-            // 重定向到主页
-            window.location = globalPath.toIndex;
-            // 重置全局数据
-            globalData.currentPage = 1;
-            globalData.editor = Object;
-        }
+        $(".logout").click(doLogOut);
 
+        // 点击关闭弹窗
+        $(".popupClose").click(popupClose);
 
-    </script>
+    });
+
+</script>
+
 </html>

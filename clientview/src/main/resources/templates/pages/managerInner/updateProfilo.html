@@ -1,1 +1,91 @@
-修改作品
+
+<!-- 样式模块 -->
+<link href="style/manager/updateProfilo.css" rel="stylesheet">
+
+<!-- 模块标题 -->
+<p class="modelTitle">修改作品</p>
+
+<!-- 筛选条件 -->
+<div class="updateProfiloDiv screen">
+
+    <select class="selectTitle1">
+        <option value="0">全部一级分类</option>
+
+    </select>
+
+    <select class="selectTitle2">
+        <option value="0">全部二级分类</option>
+
+    </select>
+
+    <select class="indexDesi">
+        <option value="0">全部设计形式</option>
+
+    </select>
+
+    <select class="timeOrder">
+        <option value="0">时间降序</option>
+        <option value="1">时间升序</option>
+
+    </select>
+
+    <div class="doSelect">点击查询</div>
+
+    <div class="deleteChecked">删除所选</div>
+
+    <div class="checkAllDiv">全选：<input type="checkbox" class="checkAll"/></div>
+
+</div>
+
+<!-- 作品容器 -->
+<div class="updateProfiloDiv profiloDiv"></div>
+
+<!-- 分页 -->
+<div class="updateProfiloDiv pagenation">
+
+</div>
+
+<!-- 加载修改作品方法 -->
+<script src="/javaScript/manager/updateProfilo.js"></script>
+
+<script>
+
+    // 就绪事件
+    $(() => {
+
+        // 重置分页
+        resetGlobalData();
+
+        // 加载分页
+        $(".pagenation").load(globalPath.pagenation);
+
+        // 加载作品
+        loadProfilo();
+
+        // 加载一级分类
+        addCate1();
+
+        // 加载二级分类
+        $(".selectTitle1").change(addCate2);
+
+        // 加载设计形式
+        addindexDesi();
+
+        // 绑定全选点击事件
+        $(".checkAll").click(clickCheckAll);
+
+        // 点击查询
+        $(".doSelect").click(doSelect);
+
+        // 点击删除所选
+        $(".deleteChecked").click(deleteChecked);
+
+        // 点击删除此作品
+        $(".profiloDiv").on("click",".deleteButtom",deleteThisWork);
+
+        // 点击修改此作品
+        $(".profiloDiv").on("click",".updateButtom",updateThisWork);
+
+    });
+
+</script>

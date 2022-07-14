@@ -33,7 +33,7 @@ values
 insert into category
 (cate_id, cate_name, parent_cate_id, create_time ,update_time)
 values
-(null , '市集', 0, now(), now());
+(null , '工具', 0, now(), now());
 
 INSERT INTO category (cate_id,cate_name,parent_cate_id,create_time,update_time)
 VALUES
@@ -47,6 +47,10 @@ VALUES
 INSERT INTO category (cate_id,cate_name,parent_cate_id,create_time,update_time)
 VALUES
 (null,'摄影作品',2,NOW(),NOW());
+INSERT INTO category (cate_id,cate_name,parent_cate_id,create_time,update_time)
+VALUES
+(null,'电商设计',2,NOW(),NOW());
+
 
 INSERT INTO category (cate_id,cate_name,parent_cate_id,create_time,update_time)
 VALUES
@@ -98,45 +102,7 @@ create table works(
     desi_id int not null                        -- 设计形式id
 );
 
-INSERT INTO works (works_id,works_name,works_en_name,works_content,cover_path,create_time,update_time,cate_id,desi_id)
-VALUES
-(NULL,"测试作品2","test02","测试内容1","https://img.alicdn.com/imgextra/i1/113860517/TB2AbarcFLM8KJjSZFBXXXJHVXa_!!113860518.jpg",NOW(),NOW(),6,1);
-INSERT INTO works (works_id,works_name,works_en_name,works_content,cover_path,create_time,update_time,cate_id,desi_id)
-VALUES
-(NULL,"测试作品3","test03","测试内2容","https://img.alicdn.com/imgextra/i1/113860517/TB2AbarcFLM8KJjSZFBXXXJHVXa_!!113860519.jpg",NOW(),NOW(),6,1);
-INSERT INTO works (works_id,works_name,works_en_name,works_content,cover_path,create_time,update_time,cate_id,desi_id)
-VALUES
-(NULL,"测试作品4","test33","测试12内容","https://img.alicdn.com/imgextra/i1/113860517/TB2AbarcFLM8KJjSZFBXXXJHVXa_!!113860510.jpg",NOW(),NOW(),6,1);
-INSERT INTO works (works_id,works_name,works_en_name,works_content,cover_path,create_time,update_time,cate_id,desi_id)
-VALUES
-(NULL,"测试作品5","test021","测试12内3容","https://img.alicdn.com/imgextra/i1/113860517/TB2AbarcFLM8KJjSZFBXXXJHVXa_!!113860512.jpg",NOW(),NOW(),7,1);
-INSERT INTO works (works_id,works_name,works_en_name,works_content,cover_path,create_time,update_time,cate_id,desi_id)
-VALUES
-(NULL,"测试作品6","test202","测试内5容","https://img.alicdn.com/imgextra/i1/113860517/TB2AbarcFLM8KJjSZFBXXXJHVXa_!!113860511.jpg",NOW(),NOW(),7,1);
-INSERT INTO works (works_id,works_name,works_en_name,works_content,cover_path,create_time,update_time,cate_id,desi_id)
-VALUES
-(NULL,"测试作品7","t2est02","测试32内容","https://img.alicdn.com/imgextra/i1/113860517/TB2AbarcFLM8KJjSZFBXXXJHVXa_!!113860513.jpg",NOW(),NOW(),7,1);
-INSERT INTO works (works_id,works_name,works_en_name,works_content,cover_path,create_time,update_time,cate_id,desi_id)
-VALUES
-(NULL,"测试作品8","tes2t02","测试1内容","https://img.alicdn.com/imgextra/i1/113860517/TB2AbarcFLM8KJjSZFBXXXJHVXa_!!113860514.jpg",NOW(),NOW(),8,1);
-INSERT INTO works (works_id,works_name,works_en_name,works_content,cover_path,create_time,update_time,cate_id,desi_id)
-VALUES
-(NULL,"测试作品9","test2102","测试内43容","https://img.alicdn.com/imgextra/i1/113860517/TB2AbarcFLM8KJjSZFBXXXJHVXa_!!113860515.jpg",NOW(),NOW(),8,2);
-INSERT INTO works (works_id,works_name,works_en_name,works_content,cover_path,create_time,update_time,cate_id,desi_id)
-VALUES
-(NULL,"测试作品10","te21st02","测112试qwq内容","https://img.alicdn.com/imgextra/i1/113860517/TB2AbarcFLM8KJjSZFBXXXJHVXa_!!113860520.jpg",NOW(),NOW(),6,1);
-INSERT INTO works (works_id,works_name,works_en_name,works_content,cover_path,create_time,update_time,cate_id,desi_id)
-VALUES
-(NULL,"测试作品11","tesd02","测112试d内容","https://img.alicdn.com/imgextra/i1/113860517/TB2AbarcFLM8KJjSZFBXXXJHVXa_!!113860521.jpg",NOW(),NOW(),7,2);
-INSERT INTO works (works_id,works_name,works_en_name,works_content,cover_path,create_time,update_time,cate_id,desi_id)
-VALUES
-(NULL,"测试作品12","testvs02","测112试123内容","https://img.alicdn.com/imgextra/i1/113860517/TB2AbarcFLM8KJjSZFBXXXJHVXa_!!113860522.jpg",NOW(),NOW(),8,1);
-INSERT INTO works (works_id,works_name,works_en_name,works_content,cover_path,create_time,update_time,cate_id,desi_id)
-VALUES
-(NULL,"测试作品13","tesast02","测112试内2容","https://img.alicdn.com/imgextra/i1/113860517/TB2AbarcFLM8KJjSZFBXXXJHVXa_!!113860523.jpg",NOW(),NOW(),6,2);
-INSERT INTO works (works_id,works_name,works_en_name,works_content,cover_path,create_time,update_time,cate_id,desi_id)
-VALUES
-(NULL,"测试作品14","testvda02","测112试内wq容","https://img.alicdn.com/imgextra/i1/113860517/TB2AbarcFLM8KJjSZFBXXXJHVXa_!!113860524.jpg",NOW(),NOW(),8,3);
+
 
 /*============================================ 用户表 ============================================*/
 

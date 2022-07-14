@@ -3,10 +3,18 @@
     text-decoration: none;
     text-align: center;
     color: #333333;
-    font-family: "PingFang SC";
-    font-family: "苹方-简";
-    font-family: "Microsoft YaHei";
-    font-family: "微软雅黑";
+    font-family: "PingFang SC","苹方-简","Microsoft YaHei","微软雅黑";
+    /* 清除浏览器默认样式 */
+    -webkit-appearance:none;
+}
+
+select{
+    text-align: center;
+    text-align-last: center;
+}
+
+input[type=checkbox]{
+    -webkit-appearance: checkbox;
 }
 
 /* 隐藏类 */
@@ -41,4 +49,14 @@
 /* 图层4 */
 .layer4{
     z-index: 1003;
+}
+
+/* 图层5 */
+.layer5{
+    z-index: 1004;
+}
+
+/* 图层6 */
+.layer6{
+    z-index: 1005;
 }

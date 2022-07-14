@@ -1,0 +1,142 @@
+*{
+    transition: 1s;
+}
+/* 内容模块 */
+.content{
+    width: 100%;
+    height: 62.86vw;
+    background-color: #ffffff;
+}
+/* 深色内容模块 */
+.content1{
+    background-color: #f9f9f9;
+}
+
+/* 图片公共样式 */
+.img{
+    margin: 7.73vw 0;
+    width: 31.56vw;
+    height: 47.39vw;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+    /* 摄影图片 */
+    .img1{
+        background-image: url("/image/index/photographic.jpg");
+    }
+    /* 设计图片 */
+    .img2{
+        background-image: url("/image/index/desgin.jpg");
+    }
+    /* 编程图片 */
+    .img3{
+        background-image: url("/image/index/programming.jpg");
+    }
+
+/* 文字公共样式 */
+.line1{
+    margin-top: 22.21vw;
+}
+    /* icon */
+    .icon{
+        display: inline-block;
+        vertical-align: bottom;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        height: 4.33vw;
+        margin-right: 1.2vw;
+    }
+
+    /* 标题 */
+    .title{
+        display: inline-block;
+        vertical-align: bottom;
+        font-size: 4.68vw;
+        line-height: 4vw;
+    }
+
+.line2{
+    font-size: 1.87vw;
+    letter-spacing: 1px;
+    margin-top: 1.03vw;
+    line-height: 1.87vw;
+}
+
+.line3{
+    margin-top: 2.57vw;
+    width: 15.67vw;
+    height: 4.16vw;
+    border: solid 0.12vw #666666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.line3:hover{
+    border-radius: 100px;
+}
+
+    .lookNow{
+        font-size: 1.87vw;
+        letter-spacing: 3px;
+        line-height: 4.16vw;
+        color: #666666;
+        margin: 0 1vw 0 0;
+    }
+    .lookIcon{
+        background-image: url("/image/index/icon/jiantou.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        height: 1.4vw;
+        width: 2.47vw;
+        margin: 0;
+    }
+
+.line4{
+    font-size: 1vw;
+    color: #666666;
+    margin-top: 2.57vw;
+}
+
+
+    /* 左侧右侧区域 */
+    .leftArea,.rightArea{
+        display: inline-block;
+        vertical-align: top;
+        width: 49.7vw;
+        height: 100%;
+    }
+
+        /* 摄影icon */
+        .icon1{
+            background-image: url("/image/index/icon/sheyinglvxing.png");
+            width: 5.2vw;
+        }
+        /* 设计icon */
+        .icon2{
+            background-image: url("/image/index/icon/sheji.png");
+            width: 4.33vw;
+        }
+        /* 编程icon */
+        .icon3{
+            background-image: url("/image/index/icon/daimayuanpeizhi.png");
+            width: 4.69vw;
+        }
+
+        /* 左侧文字样式 */
+        .leftArea .line1,.leftArea .line2,.leftArea .line3,.leftArea .line4{
+            margin-left: 18.23vw;
+            text-align: left;
+        }
+
+        /* 左侧图片 */
+        .leftArea .leftImg{
+            margin-left: 18.23vw;
+        }
+
+        /* 右侧文字样式 */
+        .rightArea .line1,.rightArea .line2,.rightArea .line3,.rightArea .line4{
+            margin-right: 18.23vw;
+            text-align: right;
+        }

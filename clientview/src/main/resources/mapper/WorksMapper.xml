@@ -4,50 +4,169 @@
 <mapper namespace="per.tom.clientview.dao.WorksDao">
 
     <select id="selectWorksByCateId" resultType="per.tom.clientview.vo.WorksVo">
-        select a.works_id,a.works_name,a.cover_path,a.create_time,a.cate_id,a.desi_id,b.cate_id,b.cate_name cate_name,c.desi_id,c.desi_name desi_name
-        from works a
-        join category b on a.cate_id=b.cate_id
-        join desi c on a.desi_id=c.desi_id
-        where a.cate_id=#{cateId}
-        order by a.create_time desc
+        SELECT a.works_id,a.works_name,a.cover_path cover_img,a.create_time,a.cate_id,a.desi_id,b.cate_id,b.cate_name cate_name,c.desi_id,c.desi_name desi_name
+        FROM works a
+        JOIN category b ON a.cate_id=b.cate_id
+        JOIN desi c ON a.desi_id=c.desi_id
+        WHERE a.cate_id=#{cateId}
+        ORDER BY a.create_time DESC
         <if test="pageSize>0">
             limit #{startIndex},#{pageSize};
         </if>
     </select>
 
     <select id="selectWorksByCateIdArr" resultType="per.tom.clientview.vo.WorksVo">
-        select a.works_id,a.works_name,a.cover_path,a.create_time,a.cate_id,a.desi_id,b.cate_id,b.cate_name cate_name,c.desi_id,c.desi_name desi_name
-        from works a
-        join category b on a.cate_id=b.cate_id
-        join desi c on a.desi_id=c.desi_id
-        where
+        SELECT a.works_id,a.works_name,a.cover_path cover_img,a.create_time,a.cate_id,a.desi_id,b.cate_id,b.cate_name cate_name,c.desi_id,c.desi_name desi_name
+        FROM works a
+        JOIN category b ON a.cate_id=b.cate_id
+        JOIN desi c ON a.desi_id=c.desi_id
+        WHERE
         <foreach collection="cateIdArr" item="cateId" separator="or" >
             a.cate_id=#{cateId}
         </foreach>
-        order by a.create_time desc
+        ORDER BY a.create_time DESC
         <if test="pageSize>0">
             limit #{startIndex},#{pageSize};
         </if>
     </select>
 
     <select id="countWorksByCateId" resultType="java.lang.Integer">
-        select count(*)
-        from works
-        where cate_id=#{cateId}
+        SELECT count(*)
+        FROM works
+        WHERE cate_id=#{cateId}
     </select>
 
     <select id="countWorksByCateIdArr" resultType="java.lang.Integer">
-        select count(*)
-        from works
-        where
+        SELECT count(*)
+        FROM works
+        WHERE
         <foreach collection="array" item="cateId" separator="or" >
             cate_id=#{cateId}
         </foreach>
     </select>
 
     <select id="getWorkByWorkId" resultType="per.tom.clientview.vo.WorksVo">
-        select works_name,works_en_name,works_content from works where works_id=#{worksId};
+        SELECT works_name,works_en_name,works_content FROM works WHERE works_id=#{worksId};
     </select>
 
+    <select id="getWorkAllByWorkId" resultType="per.tom.clientview.pojo.WorksPo">
+        SELECT a.works_id,a.works_name,a.works_en_name,a.works_content,a.cover_path,a.create_time,a.update_time,a.cate_id,a.desi_id,b.parent_cate_id parent_cate_id
+        FROM works a
+        JOIN category b ON a.cate_id=b.cate_id
+        WHERE a.works_id=#{worksId};
+    </select>
+
+    <insert id="insertWorks">
+        INSERT INTO works (works_id,works_name,works_en_name,works_content,cover_path,create_time,update_time,cate_id,desi_id)
+        VALUES
+        (null,#{worksName},#{worksEnName},#{worksContent},#{coverPath},now(),now(),#{cateId},#{desiId});
+    </insert>
+
+    <select id="getWorksByCateAddrDesi" resultType="per.tom.clientview.vo.WorksVo">
+        SELECT a.works_id,a.works_name,a.cover_path cover_img,a.create_time,a.cate_id,a.desi_id,b.cate_id,b.cate_name cate_name,c.desi_id,c.desi_name desi_name
+        FROM works a
+        JOIN category b ON a.cate_id=b.cate_id
+        JOIN desi c ON a.desi_id=c.desi_id
+        <where>
+            <foreach collection="cateIdAddr" item="cateId" separator="or">
+                a.cate_id=#{cateId}
+                <if test="desiId!=0">
+                    AND a.desi_id=#{desiId}
+                </if>
+            </foreach>
+        </where>
+        <choose>
+            <when test="timeOrder==0">
+                ORDER BY a.create_time DESC
+            </when>
+            <when test="timeOrder==1">
+                ORDER BY a.create_time ASC
+            </when>
+        </choose>
+        <if test="pageSize>0">
+            limit #{startIndex},#{pageSize};
+        </if>
+    </select>
+
+    <select id="countWorksByCateAddrDesi" resultType="java.lang.Integer">
+        SELECT count(*)
+        FROM works
+        <where>
+            <foreach collection="cateIdAddr" item="cateId" separator="or">
+                cate_id=#{cateId}
+                <if test="desiId!=0">
+                    AND desi_id=#{desiId}
+                </if>
+            </foreach>
+        </where>
+    </select>
+
+    <select id="getWorksByCateIdDesi" resultType="per.tom.clientview.vo.WorksVo">
+        SELECT a.works_id,a.works_name,a.cover_path cover_img,a.create_time,a.cate_id,a.desi_id,b.cate_id,b.cate_name cate_name,c.desi_id,c.desi_name desi_name
+        FROM works a
+        JOIN category b ON a.cate_id=b.cate_id
+        JOIN desi c ON a.desi_id=c.desi_id
+        <where>
+            <if test="cateId!=0">
+                a.cate_id=#{cateId}
+            </if>
+            <if test="desiId!=0">
+                AND a.desi_id=#{desiId}
+            </if>
+        </where>
+        <choose>
+            <when test="timeOrder==0">
+                ORDER BY a.create_time DESC
+            </when>
+            <when test="timeOrder==1">
+                ORDER BY a.create_time ASC
+            </when>
+        </choose>
+        <if test="pageSize>0">
+            limit #{startIndex},#{pageSize};
+        </if>
+    </select>
+
+    <select id="countWorksByCateIdDesi" resultType="java.lang.Integer">
+        SELECT count(*)
+        FROM works
+        <where>
+            <if test="cateId!=0">
+                cate_id=#{cateId}
+            </if>
+            <if test="desiId!=0">
+                AND desi_id=#{desiId}
+            </if>
+        </where>
+    </select>
+
+    <select id="getWorkCoverByWorkId" resultType="string">
+        SELECT cover_path FROM works WHERE works_id=#{workId};
+    </select>
+
+    <delete id="deleteWorksByWorkIds">
+        DELETE FROM works
+        WHERE
+        <foreach collection="array" item="workId" separator="or">
+            works_id=#{workId}
+        </foreach>
+    </delete>
+
+    <delete id="deleteWorkByWorkId">
+        DELETE FROM works
+        WHERE works_id=#{workId};
+    </delete>
+
+    <update id="updateWorkByWorkId">
+        UPDATE works
+        SET works_name=#{worksName},works_en_name=#{worksEnName},works_content=#{worksContent}<if test="coverPath!=null">,cover_path=#{coverPath}</if>,update_time=now(),cate_id=#{cateId},desi_id=#{desiId}
+        WHERE works_id=#{worksId};
+    </update>
+
+    <select id="checkIsHaveProfiloByCateId" resultType="per.tom.clientview.pojo.WorksPo">
+        SELECT works_id FROM works
+        WHERE cate_id=#{cateId}
+        LIMIT 0,1;
+    </select>
 
 </mapper>

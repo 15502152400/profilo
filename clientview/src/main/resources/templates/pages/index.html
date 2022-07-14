@@ -3,183 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>欢迎来到王冰潇的个人网站</title>
+
     <!--  全局css  -->
     <link href="style/globalStyle.css" rel="stylesheet">
-    <style>
 
-        /*============ 首页banner区 ============*/
-        #bannerArea{
-            position: relative;
-            display: flex;
-            margin-bottom: 1vh;
-        }
-        /* banner左右图片 */
-        .bannerImg{
-            width: 18vw;
-            height: 100%;
-            position: relative;
-            margin: 0;
-            box-shadow: 1px 1px 5px #444444;
-        }
-        /* 文字区域 */
-        .myWord{
-            font-size: 3vw;
-            padding-top: 9%;
-            color: #444444;
-        }
-        .myWord p{
-            text-align: left;
-        }
-        .mw1,.mw2{
-            font-size: 4vw;
-            color: #333333;
-        }
+    <!-- 样式模块 -->
+    <link href="style/index/index.css" rel="stylesheet">
 
-        /*============ 首页导航区 ============*/
-        #navArea{
-            display: flex;
-            margin:0 18vw;
-            margin-bottom: 1vh;
-            font-size: 1vw;
-        }
-
-        /* 单个导航块儿 */
-        .nav{
-            line-height: 45px;
-            width: 5vw;
-            cursor: pointer;
-            color: #555555;
-        }
-        .nav:hover{
-            color: #333333;
-        }
-
-        /* 被选中的导航块儿 */
-        .selectNav{
-            border-bottom: 1px solid #cccccc;
-            color: #000000;
-        }
-        /*============ 中间内容区 ============*/
-        #contentArea{
-            margin: 2vw auto;
-            position: relative;
-        }
-
-        /* 作品实体 */
-        .profileItem{
-            display: flex;
-            width: 50vw;
-            height: 17vw;
-            border-radius: 0.2vw;
-            justify-content: center;
-            align-items: center;
-            padding: 0 1vw;
-            margin-bottom: 1vw;
-            cursor: pointer;
-            transition: 1s;
-        }
-        .profileItem:hover{
-            box-shadow: 1px 1px 5px #cccccc;
-            transform:scale(1.01);
-            transition: 1s;
-        }
-        /* 缩略图 */
-        .itemImg{
-            display: flex;
-            flex: 1;
-            height: 15vw;
-            background-color: #dddddd;
-        }
-        .itemImg img{
-            width: 100%;
-        }
-        /* 右侧作品信息 */
-        .itemInfo{
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        .itemTitle{
-            font-size: 1.2vw;
-            line-height: 1.7vw;
-        }
-        .itemDetail{
-            font-size: 0.8vw;
-            color: #444444;
-            line-height: 1.4vw;
-        }
-        .itemInfo p{
-            text-align: left;
-        }
-
-        /*============ footer区 ============*/
-        #footerArea{
-            width: 100vw;
-            text-align: center;
-            line-height: 40px;
-            font-size: 1vw;
-        }
-
-        /* footer图片 */
-        .footerImg{
-           width: 100vw;
-        }
-
-        /* 备案号 */
-        .sbNum{
-            font-size: 0.2vw;
-            color: #ddd;
-        }
-
-    </style>
 </head>
 <body>
+
     <!-- 首页banner区 -->
     <div id="bannerArea" class="level1">
-
-        <!-- 左banner区 -->
-        <img class="bannerImg" style="left: 0px;box-shadow: 1px 1px 5px #999999;" src="/image/index/top-left.jpg"/>
-
-        <!-- 文字区域 -->
-        <div class="myWord">
-            <p class="mw1">你好，</p>
-            <p class="mw2">我是一个，<p>
-            <p class="mw3">会写程序做美食的<p>
-            <p class="mw5">设计师--<b>Tom Wang。</b><p>
+        <!-- 导航 -->
+        <div class="navArea">
+            <!-- <div class="nav" data-id="">首页</div> -->
         </div>
-
-        <!-- 右banner区 -->
-        <img class="bannerImg" style="right: 0px;box-shadow: 1px -1px 5px #444444;" src="/image/index/top-right.jpg"/>
-    </div>
-
-    <!-- 导航区 -->
-    <div id="navArea" class="level1" >
-        <!-- 首页 -->
-        <div class="nav toIndex" th:attr="data-id=${catePoList[0].cateId}" th:text="${catePoList[0].cateName}"></div>
-        <!-- 作品 -->
-        <div class="nav toProfilo" th:attr="data-id=${catePoList[1].cateId}" th:text="${catePoList[1].cateName}"></div>
-        <!-- 视频 -->
-        <div class="nav toVedio" th:attr="data-id=${catePoList[2].cateId}" th:text="${catePoList[2].cateName}"></div>
-        <!-- 文章 -->
-        <div class="nav toArticle" th:attr="data-id=${catePoList[3].cateId}" th:text="${catePoList[3].cateName}"></div>
-        <!-- 市集 -->
-        <div class="nav toMarket" th:attr="data-id=${catePoList[4].cateId}" th:text="${catePoList[4].cateName}"></div>
     </div>
 
     <!-- 首页内容区 -->
     <div id="contentArea" class="level1"></div>
+    <div class="deatailArea hidden"></div>
 
     <!-- footer区 -->
     <div id="footerArea" class="level1">
 
         <!-- footer图片 -->
-        <img class="footerImg" src="/image/index/footer.jpg"/>
+        <img class="footerImg" src="/image/index/desgin%20by%20tom.png"/>
 
         <!-- Email -->
-        <p>E-mail:708970258@qq.com</p>
+        <p class="email">E-mail:708970258@qq.com</p>
 
         <!-- 备案号 -->
-        <a class="sbNum" href="http://beian.bizcn.com/login.jsp">备案号:沪ICP备19028565号</a>
+        <a href="https://beian.miit.gov.cn"><p class="sbNum" style=" margin-top: 0.687vw;font-size: 0.93vw;color: #666666;line-height: 0.95vw;">备案号:沪ICP备19028565号</p></a>
+
     </div>
 
     <!--  jQuery  -->
@@ -205,14 +62,13 @@
         // 就绪事件
         $(() => {
 
-            // 加载首页
-            loadPage(globalPath.indexPath,$(".toIndex"));
-
-            // 导航区hover效果
-            $(".nav:not(.selectNav)").hover(hoverNav,outNav);
+            // 加载导航内分类
+            loadNavCate();
+            // 在内容区加载首页
+            $("#contentArea").load(globalPath.indexPath);
 
             // 点击导航块跳转到二级页面
-            $(".nav").click(clickNav);
+            $(".navArea").on("click",".nav",clickNav);
 
             // 点击作品进入作品详情
             $("#contentArea").on("click",".profileItem",toprofiloDetail);

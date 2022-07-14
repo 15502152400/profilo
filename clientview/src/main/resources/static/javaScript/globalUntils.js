@@ -6,6 +6,11 @@ function resetGlobalData() {
     globalData.editor = Object;
     globalData.currentProfiloId=0;
 }
+// 重置当前页
+function resetCurrentPage() {
+    globalData.currentPage = 1;
+}
+
 
 // 如果有信息则弹出信息
 function ajaxMsgHandle(str){
@@ -32,10 +37,13 @@ function doPreImg(upDiv,showDiv) {
 
 /*
 * 清除预览图片
+* upDiv:需要清除的input容器
 * cleanDiv: 图片预览容器的选择器
 */
-function cleanPreImg(cleanDiv) {
+function cleanPreImg(upDiv,cleanDiv) {
+    upDiv.val("");
     cleanDiv.removeAttr("src");
+    console.log(upDiv.prop("files")[0]);
 }
 
 /*
@@ -68,7 +76,12 @@ function inputIsUnpass(selection,altWrod) {
     }
     // 没有则追加
     const alt = "<p class='altWord' style='font-size: 10px;color: crimson;text-align: center;margin-top: 5px;'>"+altWrod+"</p>";
-    selection.after(alt);
+    // 如果改input不是隐藏的
+    if(!selection.hasClass("hidden")){
+        selection.after(alt);
+    }else{
+        selection.parent().after(alt);
+    }
 }
 
 /*
@@ -77,9 +90,16 @@ function inputIsUnpass(selection,altWrod) {
 */
 function inputIsPass(selection) {
     // 表单项如果有提示文字则删除
-    if (selection.next().hasClass("altWord")){
-        selection.next().remove();
+    if (!selection.hasClass("hidden")){
+        if (selection.next().hasClass("altWord")){
+            selection.next().remove();
+        }
+    }else {
+        if (selection.parent().next().hasClass("altWord")){
+            selection.parent().next().remove();
+        }
     }
+
     // 设置状态属性为通过
     selection.attr("data-ispass",1);
 }
@@ -144,3 +164,26 @@ function getBytesByUTF8(checkString){
     }
     return stringLength;
 }
+
+/*
+* 基于UTF-8校验字符串的大小
+*   target:被校验的字符串
+*   minVal:允许的最小值
+*   maxVal:允许的最大值
+*/
+function checkString(target,minVal,maxVal) {
+    // 去除空格
+    target = target.trim().toString();
+    // 计算大小
+    const size = getBytesByUTF8(target);
+    // 判断并返回
+    if (size <= maxVal && size >= minVal){
+        return true;
+    }else {
+        return false;
+    }
+}
+
+/*======================》 其他DOM工具 《======================*/
+
+

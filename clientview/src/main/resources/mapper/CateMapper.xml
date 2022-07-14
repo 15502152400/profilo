@@ -17,4 +17,51 @@
         SELECT parent_cate_id FROM category WHERE cate_id=#{cateId};
     </select>
 
+    <insert id="insertCate">
+        INSERT INTO category (cate_id,cate_name,parent_cate_id,create_time,update_time)
+        VALUES (null,#{cateName},#{parentCateId},now(),now());
+    </insert>
+
+    <select id="selectAllCateByParentCateId" resultType="per.tom.clientview.pojo.CatePo">
+        SELECT cate_id,cate_name,parent_cate_id,create_time,update_time
+        FROM category
+        <if test="parenCateId>=0">
+            WHERE parent_cate_id=#{parenCateId}
+        </if>
+        <choose>
+            <when test="showOrder==0">ORDER BY create_time DESC,cate_id DESC</when>
+            <when test="showOrder==1">ORDER BY create_time ASC,cate_id ASC</when>
+        </choose>
+        <if test="pageSize>0">
+            LIMIT #{startIndex},#{pageSize};
+        </if>
+    </select>
+
+    <select id="countCateByParentCateId" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM category
+        <if test="parenCateId>=0">
+            WHERE parent_cate_id=#{parenCateId};
+        </if>
+    </select>
+
+    <delete id="deleteCatesByCateIdList">
+        DELETE FROM category
+        WHERE
+        <foreach collection="array" item="cateId" separator="or">
+            cate_id=#{cateId}
+        </foreach>
+    </delete>
+
+    <delete id="deleteCateByCateId">
+        DELETE FROM category
+        WHERE cate_id=#{cateId};
+    </delete>
+
+    <update id="updateCateByCateId">
+        UPDATE category
+        SET cate_name=#{cateName},parent_cate_id=#{parentCateId},update_time=now()
+        WHERE cate_id=#{desiId};
+    </update>
+
 </mapper>

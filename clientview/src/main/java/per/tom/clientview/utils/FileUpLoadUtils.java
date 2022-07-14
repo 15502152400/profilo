@@ -1,5 +1,6 @@
 package per.tom.clientview.utils;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,6 +13,8 @@ import java.io.IOException;
 @Component
 public class FileUpLoadUtils {
 
+    @Autowired
+    AssertBase assertBase;
 
     @Value("${profilo.filepath}")
     String saveDir;
@@ -39,7 +42,7 @@ public class FileUpLoadUtils {
         }finally {
             // 关闭流
             try {
-                AssertBase.assertBase(null == saveFile);
+                assertBase.assertBase(null == saveFile);
                 fileOut.flush();
                 fileOut.close();
             } catch (IOException e) {

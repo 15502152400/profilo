@@ -19,10 +19,16 @@ var globalPath = {
     managerPage : "/manager",
     // 修改作品
     updateProfilo : "/managerInner/updateProfilo",
+    // 修改作品内修改页面
+    updateProfiloPage : "/managerInner/updateProfiloPage",
     // 添加作品
     addProfilo : "/managerInner/addProfilo",
     // 修改分类
     updateCate : "/managerInner/updateCate",
     // 添加分类
-    addCate : "/managerInner/addCate"
+    addCate : "/managerInner/addCate",
+    // 修改设计形式
+    updateDesi : "/managerInner/updateDesi",
+    // 添加设计形式
+    addDesi : "/managerInner/addDesi"
 }

@@ -1,68 +1,80 @@
-<style>
 
-    /* 最新作品 */
-    #lastProfilo,#lastVideo{
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 2vw;
-    }
-    /* 大标题 */
-    .innerTitle{
-        width: 50vw;
-        text-align: left;
-    }
-    .titelCh{
-        font-size: 1.5vw;
-        text-align: left;
-    }
-    .titelEn{
-        font-size: 1.2vw;
-        text-align: left;
-        color: #666666;
-    }
+<!-- 样式模块 -->
+<link href="style/index/indexInner.css" rel="stylesheet">
 
-</style>
+<!-- 摄影作品区域 -->
+<div class="content">
 
-<!-- 最新作品 -->
-<div id="lastProfilo">
-    <!-- 标题 -->
-    <div class="innerTitle">
-        <p class="titelCh">最新作品</p>
-        <p class="titelEn">Last Works</p>
-    </div>
-</div>
-
-<!-- 最新视频 -->
-<div id="lastVideo">
-        <!-- 标题 -->
-        <div class="innerTitle">
-            <p class="titelCh">最新视频</p>
-            <p class="titelEn">Last Video</p>
+    <!-- 文字 -->
+    <div class="leftArea">
+        <div class="line1">
+            <div class="icon icon1"></div>
+            <div class="title">摄影</div>
         </div>
+        <div class="line2">PHOTOGRAPHIC</div>
+        <div class="line3" data-id="2">
+            <div class="lookNow">查看作品</div>
+            <div class="lookIcon"></div>
+        </div>
+        <div class="line4">I WANT TO SAY GOOD NIGHT TO THE WORD<br>YOU HAPPEN TO BE THE WORLD</div>
+    </div>
+
+    <!-- 图片 -->
+    <div class="rightArea">
+        <div class="img rightImg img1"></div>
+    </div>
+
 </div>
 
-<!-- 最新文章 -->
-<div id="lastWord">
-    <!-- 标题 -->
-    <div class="innerTitle">
-        <p class="titelCh">最新文章</p>
-        <p class="titelEn">Last Article</p>
+<!-- 设计作品区域 -->
+<div class="content content1">
+
+    <!-- 图片 -->
+    <div class="leftArea">
+        <div class="img leftImg img2"></div>
+    </div>
+
+    <!-- 文字 -->
+    <div class="rightArea">
+        <div class="line1">
+            <div class="icon icon2"></div>
+            <div class="title">设计</div>
+        </div>
+        <div class="line2">GRAPHIC DESGIN</div>
+        <div class="line3" data-id="2">
+            <div class="lookNow">查看作品</div>
+            <div class="lookIcon"></div>
+        </div>
+        <div class="line4">DON'T DENY YOURSELF,YOU ARE VERY KIND<br>VERY GENTLE,ESPECIALLY WORTHWHILE</div>
+    </div>
+
+</div>
+
+<!-- 编程作品区域 -->
+<div class="content">
+    <!-- 文字 -->
+    <div class="leftArea">
+        <div class="line1">
+            <div class="icon icon3"></div>
+            <div class="title">编程</div>
+        </div>
+        <div class="line2">POROGRAMMING</div>
+        <div class="line3">
+            <div class="lookNow">JAVA&SQL</div>
+        </div>
+        <div class="line4">YOU CAN'T STOP YOURSELF FROM BEING VULGAR<br>BUT YOU CANLT BE ROMANTIC</div>
+    </div>
+
+    <!-- 图片 -->
+    <div class="rightArea">
+        <div class="img rightImg img3"></div>
     </div>
 </div>
+
 <script>
 
-    // 就绪事件
-    $(() => {
-
-        // 获取最新作品
-        getNewProfilo($(".toProfilo").attr("data-id"),$("#lastProfilo"));
-
-        // 获取最新视频
-        getNewProfilo($(".toVedio").attr("data-id"),$("#lastVideo"));
-
-        // 获取最新文章
-        getNewProfilo($(".toArticle").attr("data-id"),$("#lastWord"));
-    });
+    $(()=>{
+        $(".line3").click(clickNav);
+    })
 
 </script>

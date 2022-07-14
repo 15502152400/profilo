@@ -1,0 +1,158 @@
+/* ==================== 页面整体样式 ==================== */
+
+/* 本页面二级模块 */
+.updateProfiloDiv{
+    width: 100%;
+    margin:25px auto;
+}
+
+/* 条件筛选下拉选项框 */
+.screen select{
+    width: 100px;
+    margin: 0px 10px;
+}
+
+/* 点击查询按钮 */
+.doSelect{
+    font-size: 13px;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 0px 10px;
+    width: 80px;
+    cursor: pointer;
+    line-height: 30px;
+    color: #666666;
+}
+.doSelect:hover{
+    color: #000000;
+}
+.doSelect:active{
+    box-shadow: 1px 1px 2px #dddddd inset;
+    font-size: 12px;
+}
+
+/* 全选框 */
+.checkAllDiv{
+    display: inline-block;
+    width: 80px;
+    font-size: 13px;
+    color: #666666;
+    margin: 0px 10px;
+}
+.checkAllDiv:hover{
+    color: #000000;
+}
+
+/* 删除所选 */
+.deleteChecked{
+    border-radius: 5px;
+    line-height: 30px;
+    display: inline-block;
+    width: 80px;
+    font-size: 13px;
+    color: #666666;
+    cursor: pointer;
+    margin: 0px 10px;
+}
+.deleteChecked:hover{
+    color: #000000;
+}
+.deleteChecked:active{
+    box-shadow: 1px 1px 2px #dddddd inset;
+    font-size: 12px;
+}
+
+/* ==================== 作品显示样式 ==================== */
+
+/* 单个作品容器 */
+.profiloItem{
+    width:375px;
+    height: 315px;
+    box-shadow: 1px 1px 3px #999999 inset;
+    display: inline-block;
+    margin: 25px 50px;
+    vertical-align: middle;
+    padding-top: 22px;
+    padding-bottom: 18px;
+    transition: 0.7s;
+}
+.profiloItem:hover{
+    box-shadow: none;
+}
+
+/* 作品封面 */
+.profiloCover{
+    width: 325px;
+    height: 200px;
+    background-color: #eeeeee;
+}
+
+/* 作品名字 */
+.profiloTitle{
+    margin-top: 10px;
+    margin-bottom: 7px;
+    width: 300px;
+    height: 25px;
+    overflow: hidden;
+    line-height: 25px;
+    font-size: 14px;
+    text-align: left;
+    font-weight: bolder;
+}
+
+/* 作品详情 */
+.profiloDetail{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 25px;
+    font-size: 12px;
+    line-height: 25px;
+    text-align: left;
+}
+
+/* 按钮区域 */
+.bottomArea{
+    width: 300px;
+    height: 30px;
+    text-align: left;
+}
+
+/* 作品内部按钮样式 */
+.bottomArea div{
+    height: 30px;
+    width: 65px;
+    transition: 0.7s;
+    display: inline-block;
+    line-height: 30px;
+    vertical-align: middle;
+    cursor: pointer;
+    color: #666666;
+    text-align: center;
+}
+
+/* 删除按钮 */
+.deleteButtom{
+    margin-left: 0px;
+    margin-right: 5px;
+}
+.deleteButtom:hover{
+    color: white;
+    background-color: crimson;
+}
+
+/* 更新按钮 */
+.updateButtom{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.updateButtom:hover{
+    background-color: rgba(23, 174, 3, 0.9);
+    color: white;
+}
+
+/* 选择 */
+.checkDiv{
+    margin-left: 5px;
+    margin-right: 5px;
+}

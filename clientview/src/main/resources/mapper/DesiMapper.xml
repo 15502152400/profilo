@@ -8,4 +8,45 @@
         FROM desi;
     </select>
 
+    <insert id="saveDesi">
+        INSERT INTO desi (desi_id,desi_name,create_time,update_time)
+        VALUES (null,#{desiName},now(),now());
+    </insert>
+
+    <select id="getAllDesiByPagenation" resultType="per.tom.clientview.pojo.DesiPo">
+        SELECT desi_id,desi_name,create_time,update_time
+        FROM desi
+        <choose>
+            <when test="showOrder==0">ORDER BY create_time DESC, desi_id DESC </when>
+            <when test="showOrder==1">ORDER BY create_time ASC, desi_id ASC </when>
+        </choose>
+        <if test="pageSize>0">
+            LIMIT #{startIndex},#{pageSize};
+        </if>
+    </select>
+
+    <select id="countDesi" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM desi;
+    </select>
+
+    <delete id="deleteDesiByDesiIdList">
+        DELETE FROM desi
+        WHERE
+        <foreach collection="array" item="desiId" separator="or">
+            desi_id=#{desiId}
+        </foreach>
+    </delete>
+
+    <delete id="deleteDesiByDesiId">
+        DELETE FROM desi
+        WHERE desi_id=#{desiId};
+    </delete>
+
+    <update id="updateDesiByDesiId">
+        UPDATE desi
+        SET desi_name=#{desiName},update_time=now()
+        WHERE desi_id=#{desiId};
+    </update>
+
 </mapper>

@@ -5,6 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+/* 用于添加或者修改作品时接收前台传参 */
 @Data
 public class WorksSaveVo implements Serializable {
 

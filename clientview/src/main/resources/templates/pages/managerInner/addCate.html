@@ -1,1 +1,45 @@
-添加分类
+
+<!-- 样式模块 -->
+<link href="style/manager/addCate.css" rel="stylesheet">
+
+<!-- 模块标题 -->
+<p class="modelTitle">添加分类</p>
+
+<div class="addDiv">
+    <select class="parentCateId input">
+
+        <option value="-1" class="hidden" selected="selected">请选择上级分类</option>
+
+        <option value="0">无上级分类</option>
+    </select>
+</div>
+
+<div class="addDiv">
+    <input type="text" class="cateName input" placeholder="请输入分类名字" data-ispass="0"/>
+</div>
+
+<div class="addDiv">
+    <div class="submit">
+        点击提交
+    </div>
+</div>
+
+<!--  添加分类的方法  -->
+<script src="/javaScript/manager/addCate.js"></script>
+<script>
+
+    // 文档就绪事件
+    $(() => {
+
+        // 加载一级分类
+        loadParentCate();
+
+        // 检查分类名
+        $(".cateName").blur(checkCateName);
+
+        // 点击提交
+        $(".submit").click(submit);
+
+    });
+
+</script>

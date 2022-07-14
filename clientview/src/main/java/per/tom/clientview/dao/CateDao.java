@@ -12,4 +12,17 @@ public interface CateDao {
     Integer[] selectCateIdByParentCateId(Integer cateId);
 
     Integer getParentCateIdByCateId(Integer cateId);
+
+    void insertCate(CatePo catePo);
+
+    List<CatePo> selectAllCateByParentCateId(Integer startIndex, Integer pageSize, Integer showOrder, Integer parenCateId);
+
+
+    Integer countCateByParentCateId(Integer parenCateId);
+
+    Integer deleteCatesByCateIdList(Integer[] cateIdList);
+
+    Integer deleteCateByCateId(Integer cateId);
+
+    void updateCateByCateId(CatePo catePo);
 }

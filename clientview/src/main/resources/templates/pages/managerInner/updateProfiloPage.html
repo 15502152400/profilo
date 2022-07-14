@@ -1,171 +1,6 @@
-<style>
 
-    /* 编辑模块统一样式 */
-    .addDiv{
-        width: 45%;
-        margin-top: 30px;
-        transition: 0.3s;
-        padding-bottom: 15px;
-    }
-
-    /* 作品内容编辑模块 */
-    .worksContent{
-        width: 90%;
-    }
-
-    /* 富文本 */
-    #editor{
-        width: 90%;
-    }
-
-    /* 编辑模块标题 */
-    .divTitle{
-        font-size: 20px;
-        line-height: 48px;
-        color: #666666;
-        margin-bottom: 5px;
-    }
-
-    /* 输入框统一样式 */
-    .addDiv input{
-        /*display: block;*/
-        width: 75%;
-        height: 35px;
-        border-style: none;
-        box-shadow: 1px 1px 3px #cccccc inset;
-    }
-    .profiloNameEn{
-        margin-top: 15px;
-    }
-
-    /* 下拉框统一样式 */
-    .selection{
-        text-align-last: center;
-        display: block;
-        width: 200px;
-        margin-bottom: 15px;
-        height: 30px;
-    }
-
-     /* 二级分类下拉框 */
-     .secondCate{
-         margin-bottom: 0;
-     }
-
-    /* 创建时间样式 */
-    .createTime{
-        margin-top: 15px;
-    }
-
-/*=========================== 图片上传模块  ===========================*/
-
-    /* 图片预览 */
-    .preImgDiv{
-        width: 325px;
-        height: 200px;
-        position: relative;
-        border: 1px solid #f9f9f9;
-    }
-
-    /* 图片 */
-    .preImg{
-       width: 100%;
-       height: 100%;
-       border-style: none;
-    }
-
-    /* 按钮容器 */
-    .buttomDiv{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        transition: 0.7s;
-        background: none;
-    }
-
-    /* 背景蒙版 */
-    .mask{
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: #ffffff;
-        opacity: 0.6;
-    }
-
-    /* 上传和清除按钮的公共样式 */
-    .publicPreImg{
-        position: absolute;
-        left: 15%;
-        width: 70%;
-        font-size: 14px;
-        line-height: 36px;
-        color: #ffffff;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    /* 上传按钮 */
-    .doUpLoad{
-        top: 25%;
-        background-color: rgba(23, 174, 3, 0.72);
-    }
-    .doUpLoad:hover{
-        background-color: rgba(23, 174, 3, 0.9);
-    }
-
-    /* 清除按钮 */
-    .clean{
-        top: 60%;
-        background-color: rgba(255, 0, 0, 0.65);
-    }
-    .clean:hover{
-        background-color: rgba(255, 0, 0, 0.75);
-    }
-
-    /* 尺寸提示 */
-    .alertWord{
-        font-size: 12px;
-        color: #999999;
-    }
-
-/*=========================== 最后提交模块  ===========================*/
-
-    /* 公共样式 */
-    .lastButton{
-        font-size: 16px;
-        line-height: 48px;
-        width: 200px;
-        color: #666666;
-        border: 1px solid #999999;
-        border-radius: 200px;
-        cursor: pointer;
-        transition: 0.5s;
-        display: inline-block;
-        margin: 0 20px;
-    }
-    .lastButton:hover{
-        color: #ffffff;
-        transition: 0.5s;
-        font-weight: bold;
-    }
-
-    /* 提交按钮 */
-    .submit:hover{
-        background-color: rgba(23, 174, 3, 0.72);
-    }
-
-    /* 预览按钮 */
-    .preLook:hover{
-        background-color: #aee3ff;
-    }
-</style>
-
-<!-- 模块标题 -->
-<p class="modelTitle">添加作品</p>
+<!--  样式模块  -->
+<link href="style/manager/updateProfiloPage.css" rel="stylesheet">
 
 <!-- 输入作品名字 -->
 <div class="nameDiv addDiv">
@@ -173,9 +8,9 @@
     <!-- 小标题 -->
     <p class="divTitle">作品名字</p>
 
-    <input class="profiloNameCh form" type="text" placeholder="请输入中文名" data-ispass="0"/>
+    <input class="profiloNameCh form" type="text" placeholder="请输入中文名" data-ispass="1"/>
 
-    <input class="profiloNameEn form" type="text" placeholder="请输入英文名" data-ispass="0"/>
+    <input class="profiloNameEn form" type="text" placeholder="请输入英文名" data-ispass="1"/>
 </div>
 
 <!-- 上传封面图 -->
@@ -205,7 +40,7 @@
         <img class="preImg"/>
 
         <!-- 隐藏按钮 -->
-        <input class="hidden upLoadPreImg form" type="file" accept="image/jpeg,image/jpg,image/gif,image/x-png" data-ispass="0"/>
+        <input class="hidden upLoadPreImg form" type="file" accept="image/jpeg,image/jpg,image/gif,image/x-png" data-ispass="1"/>
 
     </div>
 
@@ -280,7 +115,7 @@
 <script src="/javaScript/common/wangEditor.min.js"></script>
 
 <!--  添加商品的方法  -->
-<script src="/javaScript/manager/addProfiloMethods.js"></script>
+<script src="/javaScript/manager/updateProfiloPage.js"></script>
 
 <script>
 
@@ -290,11 +125,8 @@
         // 富文本初始化
         startEditor();
 
-        // 初始化加载一级分类
-        addFirstCate();
-
-        // 初始化加载设计形式
-        addDesi();
+        // 填入数据
+        fillData();
 
         // 绑定上传封面的hover方法
         $(".preImgDiv").hover(hoverPreImg,outPreImg);

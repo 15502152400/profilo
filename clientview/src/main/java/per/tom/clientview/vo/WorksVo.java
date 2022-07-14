@@ -4,6 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+/* 用于后台查询到的作品传给前端 */
 @Data
 public class WorksVo implements Serializable {
 
@@ -14,7 +15,8 @@ public class WorksVo implements Serializable {
     private String coverImg;        // 封面图片地址
     private Timestamp createTime;   // 创建时间
     private Timestamp updateTime;   // 更新时间
-    private String cateName;        // 分类id
-    private String desiName;        // 设计形式id
+    private String firstCateName;   // 一级分类名字
+    private String cateName;        // 分类名字
+    private String desiName;        // 设计形式
 
 }

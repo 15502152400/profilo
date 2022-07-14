@@ -1,14 +1,20 @@
 /*============================== 首页方法 ==============================*/
 
-// 导航区hover效果
-function hoverNav() {
-    $(this).addClass("selectNav");
-    globalData.currentNav.removeClass("selectNav");
+// 加载一级分类
+function loadNavCate() {
+    // 获取一级分类
+    $.get(globalInterface.getCateByParentCateId,{cateId:0},(e)=>{
+        ajaxMsgHandle(e.message);
+        // 遍历分类数组
+        $.each(e.result,(i,v)=>{
+            let nav = "<div class='nav' data-id='"+v.cateId+"'>"+v.cateName+"</div>";
+            $(".navArea").append(nav);
+        })
+        globalData.currentNav = $(".nav").first();
+        globalData.currentNav.addClass("selectNav");
+    });
 }
-function outNav() {
-    $(this).removeClass("selectNav");
-    globalData.currentNav.addClass("selectNav");
-}
+
 
 // 加载页面模块
 function loadPage(pagePath,selector) {
@@ -86,8 +92,10 @@ function getNewProfilo(cateId,appendSelector){
 
 // 点击作品跳转到作品详情
 function toprofiloDetail(){
-    // 跳转页面
-    $("#contentArea").load(globalPath.profiloItemDetail);
+    $(".deatailArea").empty();
+    $(".deatailArea").load(globalPath.profiloItemDetail);
+    $(".deatailArea").removeClass("hidden");
+    $("#contentArea").addClass("hidden");
     // 获取作品并添加
     let params = {worksId:$(this).attr("data-id")}
     $.get(globalInterface.getWorkByWorkId,params,(e) => {
@@ -135,20 +143,20 @@ function loadProfiloByCateIdPage(){
         // 遍历列表追加作品
         $.each(worksList,(i,v) => {
             var div = "<div class='profileItem' data-id="+v.worksId+">"+
-                "<!-- 左侧缩略图 -->"+
-                // "<div class='itemImg'><img src="+v.coverPath+"/></div>"+
-                "<div class='itemImg'></div>"+
-                "<!-- 右侧作品信息 -->"+
-                "<div class='itemInfo'>"+
-                "<!-- 文字信息 -->"+
-                "<div class='infoWord'>"+
-                "<p class='itemTitle'>"+v.worksName+"</p>"+
-                "<p class='itemDetail'>类型："+v.cateName+"</p>"+
-                "<p class='itemDetail'>设计："+v.desiName+"</p>"+
-                "<p class='itemDetail'>日期："+v.createTime+"</p>"+
-                "</div>"+
-                "</div>"+
-                "</div>";
+                            "<!-- 左侧缩略图 -->"+
+                            "<div class='itemImg'><img src='"+v.coverImg+"'/></div>"+
+                            //"<div class='itemImg'></div>"+
+                            "<!-- 右侧作品信息 -->"+
+                            "<div class='itemInfo'>"+
+                                "<!-- 文字信息 -->"+
+                                "<div class='infoWord'>"+
+                                    "<p class='itemTitle'>"+v.worksName+"</p>"+
+                                    "<p class='itemDetail'>类型："+v.cateName+"</p>"+
+                                    "<p class='itemDetail'>设计："+v.desiName+"</p>"+
+                                    "<p class='itemDetail'>日期："+v.createTime+"</p>"+
+                                "</div>"+
+                            "</div>"+
+                        "</div>";
             $(".itemArea").append(div);
         });
         // 添加分页信息
@@ -160,16 +168,6 @@ function loadProfiloByCateIdPage(){
 }
 
 /*============================== 分页方法 ==============================*/
-
-// hover pageSize页面
-function hoverPageSize(){
-    // 显示出所有pageSize
-    $(".pageSizeItem").removeClass("hidden");
-}
-function outPageSize(){
-    // 隐藏除当前pageSize意外的所有pageSize
-    $(".pageSizeItem:not(.currentPageSize)").addClass("hidden");
-}
 
 // 点击下一页
 function toNextPage() {
@@ -221,8 +219,12 @@ function toLastPage() {
 
 // 选择pageSize
 function choosePageSize() {
+    // 重置currentPage
+    resetCurrentPage();
     // 改变全局数据中的pageSize
     globalData.pageSize = $(this).attr("data-pageSize");
+    $(".pageSizeItem").removeClass("currentPageSize");
+    $(this).addClass("currentPageSize");
     // 执行添加作品
     loadProfiloByCateIdPage();
 }
@@ -236,7 +238,7 @@ function getInnerCate(){
         cateId:globalData.currentNav.attr("data-id")
     }
     // 发起get请求
-    $.get(globalInterface.getCateByCateId,params,(e) => {
+    $.get(globalInterface.getCateByParentCateId,params,(e) => {
         // 弹出提示信息
         ajaxMsgHandle(e.message);
         // 获取分类列表
